@@ -16,7 +16,11 @@
 		47B5A5032AF1776700C16F16 /* Fetch_Recipe_TakehomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5022AF1776700C16F16 /* Fetch_Recipe_TakehomeTests.swift */; };
 		47B5A50D2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A50C2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITests.swift */; };
 		47B5A50F2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A50E2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITestsLaunchTests.swift */; };
-		47B5A51D2AF1788100C16F16 /* FHVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A51C2AF1788100C16F16 /* FHVStack.swift */; };
+		47B5A51D2AF1788100C16F16 /* FTVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A51C2AF1788100C16F16 /* FTVStack.swift */; };
+		47B5A51F2AF1790000C16F16 /* FTHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A51E2AF1790000C16F16 /* FTHStack.swift */; };
+		47B5A5212AF1792C00C16F16 /* FTStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5202AF1792C00C16F16 /* FTStackView.swift */; };
+		47B5A5242AF1796C00C16F16 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 47B5A5232AF1796C00C16F16 /* SnapKit */; };
+		47B5A5262AF179AB00C16F16 /* FTViewableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5252AF179AB00C16F16 /* FTViewableProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +54,10 @@
 		47B5A5082AF1776700C16F16 /* Fetch-Recipe-TakehomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fetch-Recipe-TakehomeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B5A50C2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Recipe_TakehomeUITests.swift; sourceTree = "<group>"; };
 		47B5A50E2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Recipe_TakehomeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		47B5A51C2AF1788100C16F16 /* FHVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHVStack.swift; sourceTree = "<group>"; };
+		47B5A51C2AF1788100C16F16 /* FTVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTVStack.swift; sourceTree = "<group>"; };
+		47B5A51E2AF1790000C16F16 /* FTHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTHStack.swift; sourceTree = "<group>"; };
+		47B5A5202AF1792C00C16F16 /* FTStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStackView.swift; sourceTree = "<group>"; };
+		47B5A5252AF179AB00C16F16 /* FTViewableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTViewableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B5A5242AF1796C00C16F16 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +141,10 @@
 		47B5A51B2AF1784700C16F16 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				47B5A51C2AF1788100C16F16 /* FHVStack.swift */,
+				47B5A51C2AF1788100C16F16 /* FTVStack.swift */,
+				47B5A51E2AF1790000C16F16 /* FTHStack.swift */,
+				47B5A5202AF1792C00C16F16 /* FTStackView.swift */,
+				47B5A5252AF179AB00C16F16 /* FTViewableProtocol.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -154,6 +165,9 @@
 			dependencies = (
 			);
 			name = "Fetch-Recipe-Takehome";
+			packageProductDependencies = (
+				47B5A5232AF1796C00C16F16 /* SnapKit */,
+			);
 			productName = "Fetch-Recipe-Takehome";
 			productReference = 47B5A4E82AF1776500C16F16 /* Fetch-Recipe-Takehome.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 47B5A4DF2AF1776500C16F16;
+			packageReferences = (
+				47B5A5222AF1796C00C16F16 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 47B5A4E92AF1776500C16F16 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -271,8 +288,11 @@
 			files = (
 				47B5A4F02AF1776500C16F16 /* ViewController.swift in Sources */,
 				47B5A4EC2AF1776500C16F16 /* AppDelegate.swift in Sources */,
+				47B5A51F2AF1790000C16F16 /* FTHStack.swift in Sources */,
+				47B5A5212AF1792C00C16F16 /* FTStackView.swift in Sources */,
 				47B5A4EE2AF1776500C16F16 /* SceneDelegate.swift in Sources */,
-				47B5A51D2AF1788100C16F16 /* FHVStack.swift in Sources */,
+				47B5A51D2AF1788100C16F16 /* FTVStack.swift in Sources */,
+				47B5A5262AF179AB00C16F16 /* FTViewableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +634,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		47B5A5222AF1796C00C16F16 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		47B5A5232AF1796C00C16F16 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47B5A5222AF1796C00C16F16 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 47B5A4E02AF1776500C16F16 /* Project object */;
 }
