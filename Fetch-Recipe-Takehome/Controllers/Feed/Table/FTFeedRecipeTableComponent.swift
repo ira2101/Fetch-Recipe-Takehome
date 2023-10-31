@@ -7,10 +7,19 @@
 
 import UIKit
 
-class FTTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource {
+class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     init() {
         super.init(frame: .zero, style: .plain)
+        
+        delegate = self
+        dataSource = self
+        
+        register(
+            FTFeedRecipeTableCellComponent.self,
+            forCellReuseIdentifier: FTFeedRecipeTableCellComponent.identifier
+        )
+        
         setupView()
     }
     
@@ -20,9 +29,6 @@ class FTTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource 
     
     private func setupView() {
         separatorStyle = .none
-        
-        delegate = self
-        dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +36,14 @@ class FTTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: FTFeedRecipeTableCellComponent.identifier,
+            for: indexPath
+        ) as? FTFeedRecipeTableCellComponent else {
+            return UITableViewCell()
+        }
+        
+        return cell
     }
 
 }

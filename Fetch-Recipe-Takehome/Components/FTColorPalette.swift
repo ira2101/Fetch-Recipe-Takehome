@@ -11,7 +11,9 @@ class FTColorPalette {
     
     static let primary = UIColor(hex: 0xEA722D)
     
-    static let labelPrimary: UIColor = .black
+    static let labelPrimary = UIColor.black
+    
+    static let labelSecondary = UIColor(hex: 0x888C93)
 
 }
 

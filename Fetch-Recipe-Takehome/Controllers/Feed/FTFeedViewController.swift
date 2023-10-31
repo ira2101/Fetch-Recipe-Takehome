@@ -13,7 +13,7 @@ class FTFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(hex: 0xFAFAFA)
         
         let filterBar = FTFeedHeaderFilterBarComponent()
         
@@ -25,7 +25,7 @@ class FTFeedViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
         
-        let table = FTTableComponent()
+        let table = FTFeedRecipeTableComponent()
         
         view.addSubview(table)
         

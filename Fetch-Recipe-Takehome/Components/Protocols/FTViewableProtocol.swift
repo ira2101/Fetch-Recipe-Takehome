@@ -61,4 +61,16 @@ extension FTViewableProtocol {
         return self
     }
     
+    @discardableResult
+    func ftShadow(color: UIColor, blur: CGFloat, offset: CGSize) -> Self {
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = offset
+        layer.shadowRadius = blur / 2.0
+        layer.shadowOpacity = 1.0
+        layer.masksToBounds = false
+        clipsToBounds = false
+        
+        return self
+    }
+    
 }
