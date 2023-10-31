@@ -21,6 +21,9 @@
 		47B5A5212AF1792C00C16F16 /* FTStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5202AF1792C00C16F16 /* FTStackView.swift */; };
 		47B5A5242AF1796C00C16F16 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 47B5A5232AF1796C00C16F16 /* SnapKit */; };
 		47B5A5262AF179AB00C16F16 /* FTViewableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5252AF179AB00C16F16 /* FTViewableProtocol.swift */; };
+		47B5A52A2AF17C4100C16F16 /* FTHScrollStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5292AF17C4100C16F16 /* FTHScrollStack.swift */; };
+		47B5A52C2AF17C4F00C16F16 /* FTVScrollStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A52B2AF17C4F00C16F16 /* FTVScrollStack.swift */; };
+		47B5A52E2AF17C6100C16F16 /* FTScrollStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A52D2AF17C6100C16F16 /* FTScrollStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		47B5A51E2AF1790000C16F16 /* FTHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTHStack.swift; sourceTree = "<group>"; };
 		47B5A5202AF1792C00C16F16 /* FTStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStackView.swift; sourceTree = "<group>"; };
 		47B5A5252AF179AB00C16F16 /* FTViewableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTViewableProtocol.swift; sourceTree = "<group>"; };
+		47B5A5292AF17C4100C16F16 /* FTHScrollStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTHScrollStack.swift; sourceTree = "<group>"; };
+		47B5A52B2AF17C4F00C16F16 /* FTVScrollStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTVScrollStack.swift; sourceTree = "<group>"; };
+		47B5A52D2AF17C6100C16F16 /* FTScrollStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTScrollStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +147,31 @@
 		47B5A51B2AF1784700C16F16 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				47B5A51C2AF1788100C16F16 /* FTVStack.swift */,
-				47B5A51E2AF1790000C16F16 /* FTHStack.swift */,
-				47B5A5202AF1792C00C16F16 /* FTStackView.swift */,
+				47B5A5282AF17C2800C16F16 /* Scroll Stack View */,
+				47B5A5272AF17C1B00C16F16 /* Stack View */,
 				47B5A5252AF179AB00C16F16 /* FTViewableProtocol.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		47B5A5272AF17C1B00C16F16 /* Stack View */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A51C2AF1788100C16F16 /* FTVStack.swift */,
+				47B5A51E2AF1790000C16F16 /* FTHStack.swift */,
+				47B5A5202AF1792C00C16F16 /* FTStackView.swift */,
+			);
+			path = "Stack View";
+			sourceTree = "<group>";
+		};
+		47B5A5282AF17C2800C16F16 /* Scroll Stack View */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A52D2AF17C6100C16F16 /* FTScrollStackView.swift */,
+				47B5A5292AF17C4100C16F16 /* FTHScrollStack.swift */,
+				47B5A52B2AF17C4F00C16F16 /* FTVScrollStack.swift */,
+			);
+			path = "Scroll Stack View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +317,9 @@
 				47B5A5212AF1792C00C16F16 /* FTStackView.swift in Sources */,
 				47B5A4EE2AF1776500C16F16 /* SceneDelegate.swift in Sources */,
 				47B5A51D2AF1788100C16F16 /* FTVStack.swift in Sources */,
+				47B5A52E2AF17C6100C16F16 /* FTScrollStackView.swift in Sources */,
+				47B5A52C2AF17C4F00C16F16 /* FTVScrollStack.swift in Sources */,
+				47B5A52A2AF17C4100C16F16 /* FTHScrollStack.swift in Sources */,
 				47B5A5262AF179AB00C16F16 /* FTViewableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

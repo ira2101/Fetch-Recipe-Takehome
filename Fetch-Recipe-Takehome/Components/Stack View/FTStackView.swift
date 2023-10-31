@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class FTStackView: UIStackView, RFViewableProtocol {
+class FTStackView: UIStackView, FTViewableProtocol {
     
-    private var isCapsulateCorners: Bool = false
+    private var shouldCapsulateCorners: Bool = false
     
     init() {
         super.init(frame: .zero)
@@ -29,14 +29,14 @@ class FTStackView: UIStackView, RFViewableProtocol {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if isCapsulateCorners {
+        if shouldCapsulateCorners {
             layer.cornerRadius = frame.size.height / 2.0
         }
     }
     
     @discardableResult
     func ftCapsulateCorners() -> Self {
-        isCapsulateCorners = true
+        shouldCapsulateCorners = true
         return self
     }
     
@@ -107,6 +107,50 @@ class FTStackView: UIStackView, RFViewableProtocol {
     @discardableResult
     func ftAlignment(_ alignment: UIStackView.Alignment) -> Self {
         self.alignment = alignment
+        return self
+    }
+    
+    @discardableResult
+    func ftPaddingLeading(_ padding: CGFloat) -> Self {
+        directionalLayoutMargins.leading = padding
+        return self
+    }
+    
+    @discardableResult
+    func ftPaddingTrailing(_ padding: CGFloat) -> Self {
+        directionalLayoutMargins.trailing = padding
+        return self
+    }
+    
+    @discardableResult
+    func ftPaddingTop(_ padding: CGFloat) -> Self {
+        directionalLayoutMargins.top = padding
+        return self
+    }
+    
+    @discardableResult
+    func ftPaddingBottom(_ padding: CGFloat) -> Self {
+        directionalLayoutMargins.bottom = padding
+        return self
+    }
+    
+    @discardableResult
+    func ftPaddingHorizontal(_ padding: CGFloat) -> Self {
+        directionalLayoutMargins.leading = padding
+        directionalLayoutMargins.trailing = padding
+        return self
+    }
+    
+    @discardableResult
+    func ftPaddingVertical(_ padding: CGFloat) -> Self {
+        directionalLayoutMargins.top = padding
+        directionalLayoutMargins.bottom = padding
+        return self
+    }
+    
+    @discardableResult
+    func ftPadding(_ padding: CGFloat) -> Self {
+        directionalLayoutMargins = NSDirectionalEdgeInsets(top: padding, leading: padding, bottom: padding, trailing: padding)
         return self
     }
     
