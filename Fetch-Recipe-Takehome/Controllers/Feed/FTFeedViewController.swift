@@ -15,7 +15,7 @@ class FTFeedViewController: UIViewController {
         
         view.backgroundColor = UIColor(hex: 0xFAFAFA)
         
-        let filterBar = FTFeedHeaderFilterBarComponent()
+        let filterBar = FTFeedHeaderComponent()
         
         view.addSubview(filterBar)
         
