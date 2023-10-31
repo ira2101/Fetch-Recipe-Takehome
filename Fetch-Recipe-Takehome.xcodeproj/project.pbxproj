@@ -16,6 +16,7 @@
 		47B5A5032AF1776700C16F16 /* Fetch_Recipe_TakehomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5022AF1776700C16F16 /* Fetch_Recipe_TakehomeTests.swift */; };
 		47B5A50D2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A50C2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITests.swift */; };
 		47B5A50F2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A50E2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITestsLaunchTests.swift */; };
+		47B5A51D2AF1788100C16F16 /* FHVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A51C2AF1788100C16F16 /* FHVStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		47B5A5082AF1776700C16F16 /* Fetch-Recipe-TakehomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fetch-Recipe-TakehomeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B5A50C2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Recipe_TakehomeUITests.swift; sourceTree = "<group>"; };
 		47B5A50E2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Recipe_TakehomeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		47B5A51C2AF1788100C16F16 /* FHVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHVStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		47B5A4EA2AF1776500C16F16 /* Fetch-Recipe-Takehome */ = {
 			isa = PBXGroup;
 			children = (
+				47B5A51B2AF1784700C16F16 /* Components */,
 				47B5A4EB2AF1776500C16F16 /* AppDelegate.swift */,
 				47B5A4ED2AF1776500C16F16 /* SceneDelegate.swift */,
 				47B5A4EF2AF1776500C16F16 /* ViewController.swift */,
@@ -125,6 +128,14 @@
 				47B5A50E2AF1776700C16F16 /* Fetch_Recipe_TakehomeUITestsLaunchTests.swift */,
 			);
 			path = "Fetch-Recipe-TakehomeUITests";
+			sourceTree = "<group>";
+		};
+		47B5A51B2AF1784700C16F16 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A51C2AF1788100C16F16 /* FHVStack.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				47B5A4F02AF1776500C16F16 /* ViewController.swift in Sources */,
 				47B5A4EC2AF1776500C16F16 /* AppDelegate.swift in Sources */,
 				47B5A4EE2AF1776500C16F16 /* SceneDelegate.swift in Sources */,
+				47B5A51D2AF1788100C16F16 /* FHVStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
