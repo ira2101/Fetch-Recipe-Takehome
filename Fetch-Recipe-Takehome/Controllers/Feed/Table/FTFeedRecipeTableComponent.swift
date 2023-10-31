@@ -63,5 +63,12 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        parentViewController?.navigationController?.pushViewController(
+            FTRecipeCardViewController(),
+            animated: true
+        )
+    }
 
 }

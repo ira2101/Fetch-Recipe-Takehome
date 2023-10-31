@@ -19,7 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        window.rootViewController = FTFeedViewController()
+        let navigationController = UINavigationController(
+            rootViewController: FTFeedViewController()
+        )
+        
+        window.rootViewController = navigationController
         
         self.window = window
         window.makeKeyAndVisible()
