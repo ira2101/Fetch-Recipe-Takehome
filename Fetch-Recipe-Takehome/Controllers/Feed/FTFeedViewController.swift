@@ -25,6 +25,17 @@ class FTFeedViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
         
+        let table = FTTableComponent()
+        
+        view.addSubview(table)
+        
+        table.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalTo(filterBar.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        
     }
 
 }
