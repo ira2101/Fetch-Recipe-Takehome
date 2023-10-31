@@ -15,12 +15,34 @@ class FTFeedInfoComponent: FTHStack {
     }
     
     private func setupView() {
-        
+        self
+        .ftAddArrangedSubview(
+//            guaranteedAlignment: .leading,
+            Label()
+        )
+        .ftPaddingHorizontal(16)
     }
     
     private func Label() -> UIView {
         return FTLabel()
-        .ftText("1")
+        .ftAttributedText(
+            FTAttributedStringBuilder()
+            .ftAppend(
+                FTAttributedString()
+                .ftText("112 ")
+                .ftTextColor(FTColorPalette.labelPrimary)
+                .ftFont(textStyle: .caption1, weight: .bold)
+                .ftBuild()
+            )
+            .ftAppend(
+                FTAttributedString()
+                .ftText("results")
+                .ftTextColor(FTColorPalette.labelPrimary)
+                .ftFont(textStyle: .caption1, weight: .medium)
+                .ftBuild()
+            )
+            .ftBuild()
+        )
     }
 
 }

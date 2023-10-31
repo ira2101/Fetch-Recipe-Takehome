@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource {
     
@@ -29,8 +30,25 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
     
     private func setupView() {
         separatorStyle = .none
+        
+        contentInset.top = 12
+                
+        let infoComponent = FTFeedInfoComponent()
+        infoComponent.translatesAutoresizingMaskIntoConstraints = true
+
+        tableHeaderView = infoComponent
+
+        tableHeaderView?.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        // Necessary, otherwise the tableHeaderView snaps into position upon
+        // initial scroll
+        tableHeaderView?.layoutIfNeeded()
     }
-    
+            
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }

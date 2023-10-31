@@ -27,6 +27,12 @@ class FTLabel: UILabel, FTViewableProtocol {
     }
     
     @discardableResult
+    func ftAttributedText(_ attributedText: NSAttributedString) -> Self {
+        self.attributedText = attributedText
+        return self
+    }
+    
+    @discardableResult
     func ftNumberOfLines(_ numberOfLines: Int) -> Self {
         self.numberOfLines = numberOfLines
         return self
