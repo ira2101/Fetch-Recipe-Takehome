@@ -206,5 +206,9 @@ class FTScrollStackView: UIView, FTViewableProtocol, UIGestureRecognizerDelegate
         ftScrollView.contentInsetAdjustmentBehavior = .never
         return self
     }
+    
+    func ftScrollRectToVisible(_ rect: CGRect, animated: Bool) {
+        ftScrollView.scrollRectToVisible(rect, animated: animated)
+    }
 
 }

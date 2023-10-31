@@ -28,7 +28,7 @@
 		47B5A5322AF17F7F00C16F16 /* FTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5312AF17F7F00C16F16 /* FTButton.swift */; };
 		47B5A5342AF1808A00C16F16 /* FTToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5332AF1808A00C16F16 /* FTToggleButton.swift */; };
 		47B5A5382AF1977300C16F16 /* FTFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5372AF1977300C16F16 /* FTFeedViewController.swift */; };
-		47B5A53C2AF1981100C16F16 /* FTFeedHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A53B2AF1981100C16F16 /* FTFeedHeaderComponent.swift */; };
+		47B5A53C2AF1981100C16F16 /* FTFeedHeaderFilterBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A53B2AF1981100C16F16 /* FTFeedHeaderFilterBarComponent.swift */; };
 		47B5A53E2AF1987500C16F16 /* FTFeedHeaderFilterBarItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A53D2AF1987500C16F16 /* FTFeedHeaderFilterBarItemComponent.swift */; };
 		47B5A5402AF1990C00C16F16 /* FTColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A53F2AF1990C00C16F16 /* FTColorPalette.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +75,7 @@
 		47B5A5312AF17F7F00C16F16 /* FTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTButton.swift; sourceTree = "<group>"; };
 		47B5A5332AF1808A00C16F16 /* FTToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTToggleButton.swift; sourceTree = "<group>"; };
 		47B5A5372AF1977300C16F16 /* FTFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedViewController.swift; sourceTree = "<group>"; };
-		47B5A53B2AF1981100C16F16 /* FTFeedHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedHeaderComponent.swift; sourceTree = "<group>"; };
+		47B5A53B2AF1981100C16F16 /* FTFeedHeaderFilterBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedHeaderFilterBarComponent.swift; sourceTree = "<group>"; };
 		47B5A53D2AF1987500C16F16 /* FTFeedHeaderFilterBarItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedHeaderFilterBarItemComponent.swift; sourceTree = "<group>"; };
 		47B5A53F2AF1990C00C16F16 /* FTColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,7 +221,7 @@
 		47B5A53A2AF197FE00C16F16 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				47B5A53B2AF1981100C16F16 /* FTFeedHeaderComponent.swift */,
+				47B5A53B2AF1981100C16F16 /* FTFeedHeaderFilterBarComponent.swift */,
 				47B5A53D2AF1987500C16F16 /* FTFeedHeaderFilterBarItemComponent.swift */,
 			);
 			path = Header;
@@ -370,7 +370,7 @@
 				47B5A51F2AF1790000C16F16 /* FTHStack.swift in Sources */,
 				47B5A5212AF1792C00C16F16 /* FTStackView.swift in Sources */,
 				47B5A4EE2AF1776500C16F16 /* SceneDelegate.swift in Sources */,
-				47B5A53C2AF1981100C16F16 /* FTFeedHeaderComponent.swift in Sources */,
+				47B5A53C2AF1981100C16F16 /* FTFeedHeaderFilterBarComponent.swift in Sources */,
 				47B5A51D2AF1788100C16F16 /* FTVStack.swift in Sources */,
 				47B5A52E2AF17C6100C16F16 /* FTScrollStackView.swift in Sources */,
 				47B5A5342AF1808A00C16F16 /* FTToggleButton.swift in Sources */,

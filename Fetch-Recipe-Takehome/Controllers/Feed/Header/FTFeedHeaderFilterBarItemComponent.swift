@@ -9,11 +9,18 @@ import UIKit
 
 class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
+    private struct Props {
+        var onItemPress: (FTToggleButton) -> Void
+    }
+    
+    private var props: Props
+    
     private let unselectedBorderColor = UIColor(hex: 0xE9E9E9)
     
     private var container: FTHStack!
-    
-    override init() {
+        
+    init(onItemPress: @escaping (FTToggleButton) -> Void) {
+        props = Props(onItemPress: onItemPress)
         super.init()
         setupView()
     }
@@ -27,6 +34,11 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
             guard let self = self else { return }
             
             self.toggleButtonDidChangeState(isActive)
+        }
+        .ftOnPress { [weak self] in
+            guard let self = self else { return }
+            
+            props.onItemPress(self)
         }
     }
     
@@ -69,10 +81,12 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
     private func onActivate() {
         container.ftBorder(width: 2.0, color: FTColorPalette.primary)
+        container.ftBackgroundColor(UIColor(hex: 0xFCF3DB))
     }
     
     private func onDeactivate() {
         container.ftBorder(width: 1.0, color: unselectedBorderColor)
+        container.ftBackgroundColor(.clear)
     }
     
 }

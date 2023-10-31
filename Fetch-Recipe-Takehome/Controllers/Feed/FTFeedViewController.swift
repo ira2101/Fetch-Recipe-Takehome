@@ -6,13 +6,25 @@
 //
 
 import UIKit
+import SnapKit
 
 class FTFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
+        view.backgroundColor = .systemBackground
+        
+        let filterBar = FTFeedHeaderFilterBarComponent()
+        
+        view.addSubview(filterBar)
+        
+        filterBar.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+        }
+        
     }
 
 }
