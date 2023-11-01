@@ -15,7 +15,32 @@ class FTRecipeCardStepComponent: FTVStack {
     }
     
     private func setupView() {
+        self
+        .ftAddArrangedSubview(
+            TitleLabel()
+        )
+        .ftAddArrangedSubview(
+            List()
+        )
+        .ftSpacing(16)
+        .ftPadding(16)
+    }
+    
+    private func TitleLabel() -> UIView {
+        return FTLabel()
+        .ftText("Directions")
+        .ftTextColor(FTColorPalette.labelPrimary)
+        .ftFont(textStyle: .title3, weight: .semibold)
+    }
+    
+    private func List() -> UIView {
+        let steps = ["One, two, three"]
         
+        return FTVStack()
+        .ftAddArrangedSubview(forEach: steps) { step in
+            return FTRecipeCardStepItemComponent()
+        }
+        .ftSpacing(12)
     }
 
 }
