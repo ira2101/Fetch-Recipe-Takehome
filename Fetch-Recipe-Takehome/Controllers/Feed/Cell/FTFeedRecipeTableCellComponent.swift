@@ -64,7 +64,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     private func Image() -> UIView {
         return FTHStack()
         .ftAddArrangedSubview(
-            FTImageComponent()
+            FTImageView()
             .ftImage(UIImage(named: "default"))
         )
         .ftWidth(100)

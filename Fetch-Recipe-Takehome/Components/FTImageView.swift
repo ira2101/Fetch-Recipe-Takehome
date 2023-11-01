@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FTImageComponent: UIImageView, FTViewableProtocol {
+class FTImageView: UIImageView, FTViewableProtocol {
 
     init() {
         super.init(frame: .zero)

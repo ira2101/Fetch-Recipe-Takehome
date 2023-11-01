@@ -19,11 +19,23 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     private let unselectedBorderColor = UIColor(hex: 0xE9E9E9)
     
     private var container: FTHStack!
+    
+    private var imageView: FTImageView!
         
     init(model: FTFeedHeaderFilterBarItemModel, onItemPress: @escaping (FTToggleButton) -> Void) {
         props = Props(model: model, onItemPress: onItemPress)
+        
         super.init()
+        
         setupView()
+        
+        props.model.readThumbnailImage { [weak self] image in
+            guard let self = self else {
+                return
+            }
+            
+            self.imageView.image = image
+        }
     }
 
     private func setupView() {
@@ -51,7 +63,7 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
             Label()
         )
         .ftAddArrangedSubview(
-            Image()
+            ImageContainer()
         )
         .ftSpacing(20)
         .ftPaddingHorizontal(16)
@@ -69,16 +81,23 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
         .ftFont(textStyle: .subheadline, weight: .medium)
     }
     
-    private func Image() -> UIView {
+    private func ImageContainer() -> UIView {
         return FTHStack()
         .ftAddArrangedSubview(
-            FTImageComponent()
-            .ftImage(UIImage(named: "default"))
+            ImageView()
         )
         .ftWidth(28)
         .ftHeight(28)
         .ftCapsulateCorners()
         .ftClipsToBounds(true)
+    }
+    
+    private func ImageView() -> UIView {
+        imageView =
+        FTImageView()
+        .ftImage(UIImage(named: "default"))
+        .ftContentMode(.scaleAspectFill)
+        return imageView
     }
     
     private func toggleButtonDidChangeState(_ isActive: Bool) {

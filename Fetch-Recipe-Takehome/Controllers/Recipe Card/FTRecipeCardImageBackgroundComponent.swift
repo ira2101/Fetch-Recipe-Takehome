@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FTRecipeCardImageBackgroundComponent: FTImageComponent, FTRecipeCardScrollDelegate {
+class FTRecipeCardImageBackgroundComponent: FTImageView, FTRecipeCardScrollDelegate {
     
     private var heightConstraint: NSLayoutConstraint!
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FTFeedHeaderFilterBarItemModel {
     
@@ -13,6 +14,21 @@ class FTFeedHeaderFilterBarItemModel {
     
     init(category: FTCategory) {
         self.category = category
+    }
+    
+    func readThumbnailImage(completion: @escaping (UIImage) -> Void) {
+        FTNetworking.readImage(url: category.thumbnailImageURL) { result in
+            switch result {
+            case .success(let image):
+                guard let image = image else {
+                    return
+                }
+                
+                completion(image)
+            default:
+                break
+            }
+        }
     }
     
 }
