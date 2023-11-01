@@ -50,7 +50,6 @@ class FTRecipeCardScrollComponent: FTVScrollStack {
         )
         .ftPaddingBottom(16)
         
-        
         // We want to change the background color of the content. The scroll view
         // covers the entire screen.
         ftStackView.ftBackgroundColor(UIColor(hex: 0xF6F6F8))

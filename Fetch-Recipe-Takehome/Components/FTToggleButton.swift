@@ -24,6 +24,17 @@ class FTToggleButton: FTButton {
     func ftSetActive(_ isActive: Bool) {
         self.ftIsActive = isActive
     }
+    
+    private func toggle() {
+        ftSetActive(!ftIsActive)
+    }
+    
+    override func performAction() {
+        super.performAction()
+        if !shouldToggleManually {
+            toggle()
+        }
+    }
         
     /// Toggling can be done either manually or automatically
     @discardableResult

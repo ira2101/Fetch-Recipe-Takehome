@@ -122,7 +122,7 @@ class FTButton: UIView, FTViewableProtocol, UIGestureRecognizerDelegate {
         performAction()
     }
     
-    private func performAction() {
+    func performAction() {
         onPressCallback?()
     }
     
