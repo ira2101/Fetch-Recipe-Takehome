@@ -34,6 +34,19 @@ class FTRecipeCardViewController: UIViewController {
             make.centerY.equalTo(background.snp.bottom)
         }
         
+        let titleComponent = FTRecipeCardTitleComponent()
+        
+        view.addSubview(titleComponent)
+        
+        titleComponent.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalTo(statisticsComponent.snp.bottom)
+        }
+        
+        // so the shadow of the statisticsComponent comes through
+        view.sendSubviewToBack(titleComponent)
+        
     }
     
 

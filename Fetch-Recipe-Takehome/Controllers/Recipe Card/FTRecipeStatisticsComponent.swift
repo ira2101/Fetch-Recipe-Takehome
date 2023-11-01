@@ -38,7 +38,7 @@ class FTRecipeStatisticsComponent: FTHStack {
             blur: 12,
             offset: CGSize(width: 0, height: 2)
         )
-        
+                
         separator.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.75)
         }
