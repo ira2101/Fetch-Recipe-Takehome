@@ -11,12 +11,19 @@ import SnapKit
 class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
     
     var ftMyMulticastDelegate: FTMulticastDelegate<FTRecipeCardScrollDelegate> = .init()
+    
+    private var titleComponent: FTRecipeCardTitleComponent!
         
     override init() {
         super.init()
         setupView()
-        
+        setupDelegates()
+    }
+    
+    private func setupDelegates() {
         ftScrollView.delegate = self
+        
+        ftMyMulticastDelegate.add(titleComponent)
     }
     
     private func setupView() {
@@ -38,7 +45,8 @@ class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
     }
         
     private func Title() -> UIView {
-        return FTRecipeCardTitleComponent()
+        titleComponent = FTRecipeCardTitleComponent()
+        return titleComponent
     }
     
     private func Ingredients() -> UIView {

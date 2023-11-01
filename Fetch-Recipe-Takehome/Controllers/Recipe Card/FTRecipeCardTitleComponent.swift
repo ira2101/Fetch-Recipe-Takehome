@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FTRecipeCardTitleComponent: FTVStack {
+class FTRecipeCardTitleComponent: FTVStack, FTRecipeCardScrollDelegate {
     
     override init() {
         super.init()
@@ -93,6 +93,10 @@ class FTRecipeCardTitleComponent: FTVStack {
             .ftBuild()
         )
         .ftBuild()
+    }
+    
+    func ftRecipeCardDidScroll(_ scrollView: UIScrollView) {
+        
     }
 
 }
