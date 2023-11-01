@@ -20,6 +20,7 @@ class FTRecipeCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupNavigationBar()
         setupDelegates()
     }
     
@@ -47,6 +48,31 @@ class FTRecipeCardViewController: UIViewController {
         scrollComponent.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    private func setupNavigationBar() {
+        let backButton = UIBarButtonItem(customView: BackButton())
+        
+        navigationItem.leftBarButtonItem = backButton
+        
+        navigationItem.title = "Title"
+        
+        let navBackground =
+        FTHStack()
+        .ftBackgroundColor(.systemBackground)
+        
+        view.addSubview(navBackground)
+        
+        navBackground.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+        }
+    }
+    
+    private func BackButton() -> UIView {
+        return FTRecipeCardBackNavBarComponent()
     }
     
     override func viewDidLayoutSubviews() {
