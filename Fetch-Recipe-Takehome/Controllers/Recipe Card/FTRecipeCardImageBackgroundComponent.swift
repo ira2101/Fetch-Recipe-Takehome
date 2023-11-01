@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FTRecipeImageBackgroundComponent: FTHStack {
+class FTRecipeCardImageBackgroundComponent: FTHStack {
     
     override init() {
         super.init()

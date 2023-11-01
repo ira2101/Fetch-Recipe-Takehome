@@ -82,7 +82,7 @@ class FTStackView: UIStackView, FTViewableProtocol {
     }
     
     @discardableResult
-    func ftAddArrangedSubview<T>(forEach list: [T], _ block: (T) -> UIView?) -> Self {
+    func ftAddArrangedSubview<T>(_ list: [T], forEach block: (T) -> UIView?) -> Self {
         list.forEach {
             if let view = block($0) {
                 addArrangedSubview(view)

@@ -34,10 +34,10 @@ class FTRecipeCardIngredientComponent: FTVStack {
     }
     
     private func List() -> UIView {
-        let ingredients = ["One, two, three"]
+        let ingredients = ["One", "two", "three"]
         
         return FTVStack()
-        .ftAddArrangedSubview(forEach: ingredients) { ingredient in
+        .ftAddArrangedSubview(ingredients) { _ in
             return FTRecipeCardIngredientItemComponent()
         }
         .ftSpacing(12)

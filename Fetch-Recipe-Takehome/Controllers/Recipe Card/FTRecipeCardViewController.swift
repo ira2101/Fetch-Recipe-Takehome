@@ -15,7 +15,7 @@ class FTRecipeCardViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
 
-        let background = FTRecipeImageBackgroundComponent()
+        let background = FTRecipeCardImageBackgroundComponent()
         
         view.addSubview(background)
         
@@ -25,7 +25,7 @@ class FTRecipeCardViewController: UIViewController {
             make.top.equalToSuperview()
         }
         
-        let statisticsComponent = FTRecipeStatisticsComponent()
+        let statisticsComponent = FTRecipeCardStatisticsComponent()
         
         view.addSubview(statisticsComponent)
         
@@ -34,19 +34,15 @@ class FTRecipeCardViewController: UIViewController {
             make.centerY.equalTo(background.snp.bottom)
         }
         
-        let titleComponent = FTRecipeCardTitleComponent()
+        let scrollComponent = FTRecipeCardScrollComponent()
         
-        view.addSubview(titleComponent)
+        view.addSubview(scrollComponent)
         
-        titleComponent.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.top.equalTo(statisticsComponent.snp.bottom)
+        scrollComponent.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
-        // so the shadow of the statisticsComponent comes through
-        view.sendSubviewToBack(titleComponent)
-        
+        scrollComponent.ftScrollView.contentInset.top = 400
     }
     
 

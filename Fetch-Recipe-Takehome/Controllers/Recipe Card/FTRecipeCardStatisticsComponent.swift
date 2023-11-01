@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FTRecipeStatisticsComponent: FTHStack {
+class FTRecipeCardStatisticsComponent: FTHStack {
     
     private var separator: FTHStack!
     
