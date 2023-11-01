@@ -15,7 +15,27 @@ class FTRecipeCardIngredientItemComponent: FTHStack {
     }
     
     private func setupView() {
-        
+        self
+        .ftAddArrangedSubview(
+            Checkmark()
+        )
+        .ftAddArrangedSubview(
+            Label()
+        )
+        .ftSpacing(12)
+        .ftAlignment(.center)
+    }
+    
+    private func Label() -> UIView {
+        return FTLabel()
+        .ftText("Ingredient")
+        .ftTextColor(FTColorPalette.labelPrimary)
+        .ftFont(textStyle: .body, weight: .medium)
+        .ftNumberOfLines(0)
+    }
+    
+    private func Checkmark() -> UIView {
+        return FTRecipeCardIngredientItemCheckmarkComponent()
     }
 
 }
