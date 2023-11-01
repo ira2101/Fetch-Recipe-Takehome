@@ -11,9 +11,26 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
 
     private var items: [FTFeedHeaderFilterBarItemComponent] = []
     
+    private var model: FTFeedHeaderFilterBarModel
+    
     override init() {
+        model = FTFeedHeaderFilterBarModel()
+        
         super.init()
         setupView()
+        
+        model.readCategories { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let categoriesWrapper):
+                self.successfullyReadCategories(categories: categoriesWrapper.categories)
+            case .failure:
+                // There is nothing we want to do if we can't fetch results. We will show
+                // in the tableView if we are unable to fetch any results.
+                break
+            }
+        }
     }
         
     private func setupView() {
@@ -23,43 +40,31 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
         .ftAlwaysBounceHorizontal(true)
         .ftshowsHorizontalScrollIndicator(false)
         .ftBackgroundColor(.systemBackground)
-        
-        items = [
-            FTFeedHeaderFilterBarItemComponent(
-                onItemPress: { [weak self] toggleButton in
-                    guard let self = self else { return }
-                    self.onItemPress(toggleButton)
-            }),
-            FTFeedHeaderFilterBarItemComponent(
-                onItemPress: { [weak self] toggleButton in
-                    guard let self = self else { return }
-                    self.onItemPress(toggleButton)
-            }),
-            FTFeedHeaderFilterBarItemComponent(
-                onItemPress: { [weak self] toggleButton in
-                    guard let self = self else { return }
-                    self.onItemPress(toggleButton)
-            }),
-            FTFeedHeaderFilterBarItemComponent(
-                onItemPress: { [weak self] toggleButton in
-                    guard let self = self else { return }
-                    self.onItemPress(toggleButton)
-            })
-        ]
-                        
-        items.forEach { item in
-            ftAddArrangedSubview(item)
-        }
-                
-        items.first?.ftSetActive(true)
     }
-        
+            
     private func onItemPress(_ selected: FTToggleButton) {
         for item in items {
             item.ftSetActive(item == selected)
         }
         
         ftScrollRectToVisible(selected.frame, animated: true)
+    }
+    
+    private func successfullyReadCategories(categories: [FTCategory]) {
+        items = categories.map { _ in
+            FTFeedHeaderFilterBarItemComponent(
+                onItemPress: { [weak self] toggleButton in
+                    guard let self = self else { return }
+                    self.onItemPress(toggleButton)
+                }
+            )
+        }
+        
+        items.forEach { item in
+            ftAddArrangedSubview(item)
+        }
+        
+        items.first?.ftSetActive(true)
     }
 
 }

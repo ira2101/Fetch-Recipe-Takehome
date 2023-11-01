@@ -11,7 +11,7 @@ import UIKit
 
 class FTNetworking {
     
-    static let baseURL = "www.themealdb.com"
+    static let baseURL = "https://www.themealdb.com"
     
     static func readImage(uri: String, parameters: Parameters? = nil, completion: @escaping (Result<UIImage?, Error>) -> Void) {
         AF.request(baseURL + uri, parameters: parameters).responseData { response in
@@ -25,8 +25,19 @@ class FTNetworking {
         }
     }
     
-    static func readObject<T : Decodable>(uri: String, parameters: Parameters? = nil, completion: @escaping (Result<T, Error>) -> Void) {
+    static func readObject<T : Decodable>(type: T.Type = T.self, uri: String, parameters: Parameters? = nil, completion: @escaping (Result<T, Error>) -> Void) {
         AF.request(baseURL + uri, parameters: parameters).responseDecodable(of: T.self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    static func readObjects<T : Decodable>(type: T.Type, uri: String, parameters: Parameters? = nil, completion: @escaping (Result<[T], Error>) -> Void) {
+        AF.request(baseURL + uri, parameters: parameters).responseDecodable(of: [T].self) { response in
             switch response.result {
             case .success(let data):
                 completion(.success(data))
