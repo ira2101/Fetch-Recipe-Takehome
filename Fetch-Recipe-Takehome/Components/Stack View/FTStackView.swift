@@ -80,6 +80,17 @@ class FTStackView: UIStackView, FTViewableProtocol {
         
         return self
     }
+    
+    @discardableResult
+    func ftAddArrangedSubview<T>(forEach list: [T], _ block: (T) -> UIView?) -> Self {
+        list.forEach {
+            if let view = block($0) {
+                addArrangedSubview(view)
+            }
+        }
+        
+        return self
+    }
         
     @discardableResult
     func ftSpacing(_ spacing: CGFloat) -> Self {

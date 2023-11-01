@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FTRecipeCardIngredientComponent: FTHStack {
+class FTRecipeCardIngredientComponent: FTVStack {
 
     override init() {
         super.init()
@@ -15,7 +15,15 @@ class FTRecipeCardIngredientComponent: FTHStack {
     }
     
     private func setupView() {
-        
+        self
+        .ftAddArrangedSubview(
+            TitleLabel()
+        )
+        .ftAddArrangedSubview(
+            List()
+        )
+        .ftSpacing(16)
+        .ftPadding(16)
     }
     
     private func TitleLabel() -> UIView {
@@ -23,6 +31,16 @@ class FTRecipeCardIngredientComponent: FTHStack {
         .ftText("Ingredients")
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .title3, weight: .semibold)
+    }
+    
+    private func List() -> UIView {
+        let ingredients = ["One, two, three"]
+        
+        return FTVStack()
+        .ftAddArrangedSubview(forEach: ingredients) { ingredient in
+            return FTRecipeCardIngredientItemComponent()
+        }
+        .ftSpacing(12)
     }
     
 }
