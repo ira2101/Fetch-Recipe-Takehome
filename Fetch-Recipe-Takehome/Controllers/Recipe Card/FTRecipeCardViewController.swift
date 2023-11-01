@@ -9,17 +9,24 @@ import UIKit
 import SnapKit
 
 class FTRecipeCardViewController: UIViewController {
+    
+    private var backgroundComponent: FTRecipeCardImageBackgroundComponent!
+    
+    private var scrollComponent: FTRecipeCardScrollComponent!
+    
+    // for layout passes
+    private var isFirstPass = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
 
-        let background = FTRecipeCardImageBackgroundComponent()
+        backgroundComponent = FTRecipeCardImageBackgroundComponent()
         
-        view.addSubview(background)
+        view.addSubview(backgroundComponent)
         
-        background.snp.makeConstraints { make in
+        backgroundComponent.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalToSuperview()
@@ -31,18 +38,27 @@ class FTRecipeCardViewController: UIViewController {
         
         statisticsComponent.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalTo(background.snp.bottom)
+            make.centerY.equalTo(backgroundComponent.snp.bottom)
         }
         
-        let scrollComponent = FTRecipeCardScrollComponent()
+        scrollComponent = FTRecipeCardScrollComponent()
         
         view.addSubview(scrollComponent)
         
         scrollComponent.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        scrollComponent.ftScrollView.contentInset.top = 400
+        if isFirstPass {
+            scrollComponent.ftScrollView.contentInset.top = backgroundComponent.frame.height
+
+            isFirstPass = false
+        }
+        
     }
     
 
