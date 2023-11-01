@@ -10,7 +10,7 @@ import SnapKit
 
 class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
     
-    weak var ftMyDelegate: FTRecipeCardScrollDelegate?
+    var ftMyMulticastDelegate: FTMulticastDelegate<FTRecipeCardScrollDelegate> = .init()
         
     override init() {
         super.init()
@@ -19,7 +19,7 @@ class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
         ftScrollView.delegate = self
     }
     
-    private func setupView() {        
+    private func setupView() {
         self
         .ftAddArrangedSubview(
             Title()
@@ -50,7 +50,9 @@ class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        ftMyDelegate?.ftRecipeCardDidScroll(scrollView)
+        ftMyMulticastDelegate.invoke { delegate in
+            delegate.ftRecipeCardDidScroll(scrollView)
+        }
     }
     
 }

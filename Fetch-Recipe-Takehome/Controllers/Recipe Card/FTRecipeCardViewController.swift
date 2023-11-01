@@ -25,7 +25,7 @@ class FTRecipeCardViewController: UIViewController {
     }
     
     private func setupDelegates() {
-        scrollComponent.ftMyDelegate = backgroundComponent
+        scrollComponent.ftMyMulticastDelegate.add(backgroundComponent)
     }
     
     private func setupView() {
