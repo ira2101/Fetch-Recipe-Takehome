@@ -48,7 +48,7 @@ struct FTRecipe: Decodable {
         area = try container.decode(String.self, forKey: .area)
         thumbnailImageURL = try container.decode(String.self, forKey: .thumbnailImageURL)
         
-        ingredients = []
+        var ingredientsTemp: [FTIngredient] = []
                 
         // There are between 1 and 20 ingredients
         for i in 1...20 {
@@ -71,8 +71,10 @@ struct FTRecipe: Decodable {
                 continue
             }
             
-            ingredients.append(FTIngredient(name: ingredient, amount: measure))
+            ingredientsTemp.append(FTIngredient(name: ingredient, amount: measure))
         }
+        
+        ingredients = ingredientsTemp
                 
         // Tags are separated by commas
         let tagsRaw = try container.decode(String.self, forKey: .tags)
