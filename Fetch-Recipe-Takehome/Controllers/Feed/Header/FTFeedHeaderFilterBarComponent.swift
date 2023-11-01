@@ -17,6 +17,7 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
         model = FTFeedHeaderFilterBarModel()
         
         super.init()
+        
         setupView()
         
         model.readCategories { [weak self] result in
