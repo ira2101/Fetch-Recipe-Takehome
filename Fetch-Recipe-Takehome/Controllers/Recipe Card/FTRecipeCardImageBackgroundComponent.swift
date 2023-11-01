@@ -6,9 +6,10 @@
 //
 
 import UIKit
-import SnapKit
 
-class FTRecipeCardImageBackgroundComponent: FTImageComponent {
+class FTRecipeCardImageBackgroundComponent: FTImageComponent, FTRecipeCardScrollDelegate {
+    
+    private var heightConstraint: NSLayoutConstraint!
     
     override init() {
         super.init()
@@ -19,11 +20,23 @@ class FTRecipeCardImageBackgroundComponent: FTImageComponent {
         self
         .ftImage(UIImage(named: "default"))
         .ftContentMode(.scaleAspectFill)
+        .ftClipsToBounds(true)
         
-        snp.makeConstraints { make in
-            make.height.equalTo(snp.width)
+        heightConstraint = heightAnchor.constraint(equalTo: widthAnchor)
+        heightConstraint.isActive = true
+    }
+    
+    func ftRecipeCardDidScroll(_ scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+
+        // Now the offset is zero-based
+        let adjustedYOffset = yOffset + scrollView.contentInset.top
+
+        if adjustedYOffset < 0 {
+            heightConstraint.constant = -adjustedYOffset
+        } else {
+            heightConstraint.constant = 0
         }
-        
     }
 
 }

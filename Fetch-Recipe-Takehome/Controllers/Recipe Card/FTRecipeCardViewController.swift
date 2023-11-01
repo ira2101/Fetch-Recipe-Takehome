@@ -19,7 +19,15 @@ class FTRecipeCardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
+        setupDelegates()
+    }
+    
+    private func setupDelegates() {
+        scrollComponent.ftMyDelegate = backgroundComponent
+    }
+    
+    private func setupView() {
         view.backgroundColor = .systemBackground
 
         backgroundComponent = FTRecipeCardImageBackgroundComponent()
@@ -39,7 +47,6 @@ class FTRecipeCardViewController: UIViewController {
         scrollComponent.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
     }
     
     override func viewDidLayoutSubviews() {
