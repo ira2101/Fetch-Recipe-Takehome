@@ -52,8 +52,9 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
     }
     
     private func successfullyReadCategories(categories: [FTCategory]) {
-        items = categories.map { _ in
+        items = categories.map {
             FTFeedHeaderFilterBarItemComponent(
+                model: model.createItemModel(for: $0),
                 onItemPress: { [weak self] toggleButton in
                     guard let self = self else { return }
                     self.onItemPress(toggleButton)

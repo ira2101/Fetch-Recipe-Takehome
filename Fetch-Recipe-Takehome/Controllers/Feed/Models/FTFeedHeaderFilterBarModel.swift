@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Alamofired
+import Alamofire
 
 class FTFeedHeaderFilterBarModel {
         
@@ -17,6 +17,10 @@ class FTFeedHeaderFilterBarModel {
         ) { result in
             completion(result)
         }
+    }
+    
+    func createItemModel(for category: FTCategory) -> FTFeedHeaderFilterBarItemModel {
+        return FTFeedHeaderFilterBarItemModel(category: category)
     }
     
 }

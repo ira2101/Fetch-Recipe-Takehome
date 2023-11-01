@@ -10,6 +10,7 @@ import UIKit
 class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
     private struct Props {
+        var model: FTFeedHeaderFilterBarItemModel
         var onItemPress: (FTToggleButton) -> Void
     }
     
@@ -19,8 +20,8 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
     private var container: FTHStack!
         
-    init(onItemPress: @escaping (FTToggleButton) -> Void) {
-        props = Props(onItemPress: onItemPress)
+    init(model: FTFeedHeaderFilterBarItemModel, onItemPress: @escaping (FTToggleButton) -> Void) {
+        props = Props(model: model, onItemPress: onItemPress)
         super.init()
         setupView()
     }
@@ -63,7 +64,7 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
     private func Label() -> UIView {
         return FTLabel()
-        .ftText("Breakfast")
+        .ftText(props.model.category.type)
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .subheadline, weight: .medium)
     }
