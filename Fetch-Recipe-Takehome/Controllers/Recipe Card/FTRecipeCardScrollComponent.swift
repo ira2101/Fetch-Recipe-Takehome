@@ -11,9 +11,7 @@ import SnapKit
 class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
     
     weak var ftMyDelegate: FTRecipeCardScrollDelegate?
-    
-    private var statisticsComponent: FTRecipeCardStatisticsComponent!
-    
+        
     override init() {
         super.init()
         setupView()
@@ -21,28 +19,8 @@ class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
         ftScrollView.delegate = self
     }
     
-    private func setupView() {
-        statisticsComponent = FTRecipeCardStatisticsComponent()
-        
-        ftScrollView.addSubview(statisticsComponent)
-        
-        statisticsComponent.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(ftScrollView.snp.top)
-        }
-        
-        statisticsComponent.setNeedsLayout()
-        statisticsComponent.layoutIfNeeded()
-        
+    private func setupView() {        
         self
-        .ftAddArrangedSubview(
-            // This over padding because we want a white background on half
-            // of the statistics component. It would be UIColor(hex: 0xF6F6F8)
-            // if we used padding
-            FTHStack()
-            .ftHeight(statisticsComponent.frame.height / 2)
-            .ftBackgroundColor(.systemBackground)
-        )
         .ftAddArrangedSubview(
             Title()
         )
