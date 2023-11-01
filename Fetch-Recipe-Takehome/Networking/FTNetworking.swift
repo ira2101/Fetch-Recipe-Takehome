@@ -26,7 +26,7 @@ class FTNetworking {
         }
     }
     
-    static func readObject<T : Decodable>(type: T.Type = T.self, uri: String, parameters: Parameters? = nil, completion: @escaping (Result<T, Error>) -> Void) {
+    static func readObject<T : Decodable>(type: T.Type, uri: String, parameters: Parameters? = nil, completion: @escaping (Result<T, Error>) -> Void) {
         AF.request(baseURL + uri, parameters: parameters).responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):

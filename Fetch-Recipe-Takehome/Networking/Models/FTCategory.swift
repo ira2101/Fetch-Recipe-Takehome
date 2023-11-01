@@ -8,9 +8,13 @@
 import Foundation
 
 struct FTCategory: Decodable {
+    
     let id: String
+    
     let type: String
+    
     let thumbnailImageURL: String
+    
     let description: String
 
     enum CodingKeys: String, CodingKey {
@@ -23,5 +27,7 @@ struct FTCategory: Decodable {
 }
 
 struct FTCategoryResponseWrapper: Decodable {
+    
     let categories: [FTCategory]
+    
 }
