@@ -76,7 +76,12 @@ extension FTViewableProtocol {
     @discardableResult
     func ftIsHidden(_ isHidden: Bool) -> Self {
         self.isHidden = isHidden
-        
+        return self
+    }
+    
+    @discardableResult
+    func ftClipsToBounds(_ clipsToBounds: Bool) -> Self {
+        self.clipsToBounds = clipsToBounds
         return self
     }
     

@@ -13,8 +13,13 @@ class FTImageComponent: UIImageView {
         super.init(frame: .zero)
     }
     
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     @discardableResult
-    func rtImage(_ image: UIImage) -> Self {
+    func ftImage(_ image: UIImage?) -> Self {
         self.image = image
         return self
     }

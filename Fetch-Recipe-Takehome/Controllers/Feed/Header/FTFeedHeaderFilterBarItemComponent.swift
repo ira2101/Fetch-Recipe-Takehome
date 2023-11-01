@@ -30,6 +30,7 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
         .ftComponent(
             Container()
         )
+        .ftShouldToggleManually(true)
         .ftToggleButtonDidChangeState { [weak self] isActive in
             guard let self = self else { return }
             
@@ -69,10 +70,14 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
     private func Image() -> UIView {
         return FTHStack()
-        .ftBackgroundColor(.green)
+        .ftAddArrangedSubview(
+            FTImageComponent()
+            .ftImage(UIImage(named: "default"))
+        )
         .ftWidth(28)
         .ftHeight(28)
         .ftCapsulateCorners()
+        .ftClipsToBounds(true)
     }
     
     private func toggleButtonDidChangeState(_ isActive: Bool) {

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FTRecipeCardImageBackgroundComponent: FTHStack {
+class FTRecipeCardImageBackgroundComponent: FTImageComponent {
     
     override init() {
         super.init()
@@ -17,7 +17,7 @@ class FTRecipeCardImageBackgroundComponent: FTHStack {
     
     private func setupView() {
         self
-        .ftBackgroundColor(.systemCyan)
+        .ftImage(UIImage(named: "default"))
         
         snp.makeConstraints { make in
             make.height.equalTo(snp.width)

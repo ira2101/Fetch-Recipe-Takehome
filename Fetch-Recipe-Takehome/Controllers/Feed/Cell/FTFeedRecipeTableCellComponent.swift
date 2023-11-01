@@ -54,15 +54,23 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
         .ftPadding(8)
         .ftBackgroundColor(.white)
         .ftCornerRadius(8)
-        .ftShadow(color: .black.withAlphaComponent(0.08), blur: 4, offset: CGSize(width: 0, height: 1))
+        .ftShadow(
+            color: .black.withAlphaComponent(0.08),
+            blur: 4,
+            offset: CGSize(width: 0, height: 1)
+        )
     }
     
     private func Image() -> UIView {
         return FTHStack()
-        .ftBackgroundColor(.green)
+        .ftAddArrangedSubview(
+            FTImageComponent()
+            .ftImage(UIImage(named: "default"))
+        )
         .ftWidth(100)
         .ftHeight(100)
         .ftCornerRadius(8)
+        .ftClipsToBounds(true)
     }
     
     private func RightContainer() -> UIView {
