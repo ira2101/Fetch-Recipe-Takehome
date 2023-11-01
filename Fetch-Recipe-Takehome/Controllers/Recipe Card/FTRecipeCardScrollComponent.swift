@@ -33,7 +33,8 @@ class FTRecipeCardScrollComponent: FTVScrollStack {
         self
         .ftAddArrangedSubview(
             // This over padding because we want a white background on half
-            // of the statistics component. It would be clear if we used padding
+            // of the statistics component. It would be UIColor(hex: 0xF6F6F8)
+            // if we used padding
             FTHStack()
             .ftHeight(statisticsComponent.frame.height / 2)
             .ftBackgroundColor(.systemBackground)
@@ -42,24 +43,21 @@ class FTRecipeCardScrollComponent: FTVScrollStack {
             Title()
         )
         .ftAddArrangedSubview(
-            Information()
-        )
-        .ftPaddingBottom(16)
-    }
-        
-    private func Title() -> UIView {
-        return FTRecipeCardTitleComponent()
-    }
-    
-    private func Information() -> UIView {
-        return FTVStack()
-        .ftAddArrangedSubview(
             Ingredients()
         )
         .ftAddArrangedSubview(
             Steps()
         )
-        .ftBackgroundColor(UIColor(hex: 0xF6F6F8))
+        .ftPaddingBottom(16)
+        
+        
+        // We want to change the background color of the content. The scroll view
+        // covers the entire screen.
+        ftStackView.ftBackgroundColor(UIColor(hex: 0xF6F6F8))
+    }
+        
+    private func Title() -> UIView {
+        return FTRecipeCardTitleComponent()
     }
     
     private func Ingredients() -> UIView {
