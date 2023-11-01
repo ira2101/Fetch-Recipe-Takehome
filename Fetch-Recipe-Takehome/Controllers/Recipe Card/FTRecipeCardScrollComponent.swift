@@ -32,12 +32,19 @@ class FTRecipeCardScrollComponent: FTVScrollStack {
         
         self
         .ftAddArrangedSubview(
+            // This over padding because we want a white background on half
+            // of the statistics component. It would be clear if we used padding
+            FTHStack()
+            .ftHeight(statisticsComponent.frame.height / 2)
+            .ftBackgroundColor(.systemBackground)
+        )
+        .ftAddArrangedSubview(
             Title()
         )
         .ftAddArrangedSubview(
             Information()
         )
-        .ftPaddingTop(statisticsComponent.frame.height / 2) // we don't want the stat component to cover anything
+        .ftPaddingBottom(16)
     }
         
     private func Title() -> UIView {

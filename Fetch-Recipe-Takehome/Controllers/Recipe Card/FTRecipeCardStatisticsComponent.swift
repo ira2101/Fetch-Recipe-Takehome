@@ -43,7 +43,7 @@ class FTRecipeCardStatisticsComponent: FTHStack {
             make.height.equalToSuperview().multipliedBy(0.75)
         }
     }
-    
+        
     private func IngredientsLabel() -> UIView {
         return FTLabel()
         .ftAttributedText(
