@@ -12,7 +12,7 @@ class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
     
     var ftMyMulticastDelegate: FTMulticastDelegate<FTRecipeCardScrollDelegate> = .init()
     
-    private var titleComponent: FTRecipeCardTitleComponent!
+    var titleComponent: FTRecipeCardTitleComponent!
         
     override init() {
         super.init()

@@ -85,4 +85,10 @@ extension FTViewableProtocol {
         return self
     }
     
+    @discardableResult
+    func ftAlpha(_ alpha: CGFloat) -> Self {
+        self.alpha = alpha
+        return self
+    }
+    
 }

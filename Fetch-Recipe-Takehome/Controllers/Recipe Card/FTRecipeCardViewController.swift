@@ -8,11 +8,13 @@
 import UIKit
 import SnapKit
 
-class FTRecipeCardViewController: UIViewController {
+class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
     
     private var backgroundComponent: FTRecipeCardImageBackgroundComponent!
     
     private var scrollComponent: FTRecipeCardScrollComponent!
+    
+    private var navBackgroud: FTHStack!
     
     // for layout passes
     private var isFirstPass = true
@@ -26,6 +28,8 @@ class FTRecipeCardViewController: UIViewController {
     
     private func setupDelegates() {
         scrollComponent.ftMyMulticastDelegate.add(backgroundComponent)
+        
+        scrollComponent.titleComponent.ftMyMulticastDelegate.add(self)
     }
     
     private func setupView() {
@@ -55,11 +59,17 @@ class FTRecipeCardViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = backButton
         
-        navigationItem.title = "Title"
+        navigationItem.titleView =
+        FTLabel()
+        .ftText("Title")
+        .ftTextColor(FTColorPalette.labelPrimary)
+        .ftFont(textStyle: .body, weight: .semibold)
+        .ftIsHidden(true) // alpha does not work in this case
         
         let navBackground =
         FTHStack()
         .ftBackgroundColor(.systemBackground)
+        .ftAlpha(0) // Initially hide
         
         view.addSubview(navBackground)
         
@@ -69,6 +79,8 @@ class FTRecipeCardViewController: UIViewController {
             make.top.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
+        
+        self.navBackgroud = navBackground
     }
     
     private func BackButton() -> UIView {
@@ -83,6 +95,12 @@ class FTRecipeCardViewController: UIViewController {
 
             isFirstPass = false
         }
+    }
+    
+    func ftRecipeCardTitlePercentOffscreen(percent: CGFloat) {
+        navigationItem.titleView?.alpha = percent
+        navigationItem.titleView?.isHidden = percent == 0.0
+        navBackgroud.alpha = percent
     }
     
 }
