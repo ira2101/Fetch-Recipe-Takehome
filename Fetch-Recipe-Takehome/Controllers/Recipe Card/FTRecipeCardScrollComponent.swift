@@ -6,15 +6,30 @@
 //
 
 import UIKit
+import SnapKit
 
 class FTRecipeCardScrollComponent: FTVScrollStack {
-
+    
+    private var statisticsComponent: FTRecipeCardStatisticsComponent!
+    
     override init() {
         super.init()
         setupView()
     }
     
     private func setupView() {
+        statisticsComponent = FTRecipeCardStatisticsComponent()
+        
+        ftScrollView.addSubview(statisticsComponent)
+        
+        statisticsComponent.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(ftScrollView.snp.top)
+        }
+        
+        statisticsComponent.setNeedsLayout()
+        statisticsComponent.layoutIfNeeded()
+        
         self
         .ftAddArrangedSubview(
             Title()
@@ -22,8 +37,9 @@ class FTRecipeCardScrollComponent: FTVScrollStack {
         .ftAddArrangedSubview(
             Information()
         )
+        .ftPaddingTop(statisticsComponent.frame.height / 2) // we don't want the stat component to cover anything
     }
-    
+        
     private func Title() -> UIView {
         return FTRecipeCardTitleComponent()
     }
@@ -46,5 +62,5 @@ class FTRecipeCardScrollComponent: FTVScrollStack {
     private func Steps() -> UIView {
         return FTRecipeCardStepComponent()
     }
-
+    
 }

@@ -31,16 +31,7 @@ class FTRecipeCardViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.top.equalToSuperview()
         }
-        
-        let statisticsComponent = FTRecipeCardStatisticsComponent()
-        
-        view.addSubview(statisticsComponent)
-        
-        statisticsComponent.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(backgroundComponent.snp.bottom)
-        }
-        
+                
         scrollComponent = FTRecipeCardScrollComponent()
         
         view.addSubview(scrollComponent)
@@ -48,6 +39,7 @@ class FTRecipeCardViewController: UIViewController {
         scrollComponent.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,10 +50,6 @@ class FTRecipeCardViewController: UIViewController {
 
             isFirstPass = false
         }
-        
     }
-    
-
-    
 
 }
