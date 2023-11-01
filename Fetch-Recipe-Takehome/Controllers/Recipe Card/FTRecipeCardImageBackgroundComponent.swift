@@ -18,6 +18,7 @@ class FTRecipeCardImageBackgroundComponent: FTImageComponent {
     private func setupView() {
         self
         .ftImage(UIImage(named: "default"))
+        .ftContentMode(.scaleAspectFill)
         
         snp.makeConstraints { make in
             make.height.equalTo(snp.width)

@@ -33,7 +33,7 @@ class FTRecipeCardViewController: UIViewController {
         }
                 
         scrollComponent = FTRecipeCardScrollComponent()
-        
+                
         view.addSubview(scrollComponent)
         
         scrollComponent.snp.makeConstraints { make in
@@ -51,5 +51,5 @@ class FTRecipeCardViewController: UIViewController {
             isFirstPass = false
         }
     }
-
+    
 }

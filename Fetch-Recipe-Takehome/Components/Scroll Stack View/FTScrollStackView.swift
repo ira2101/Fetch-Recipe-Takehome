@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FTScrollStackView: UIView, FTViewableProtocol, UIGestureRecognizerDelegate, UIScrollViewDelegate {
+class FTScrollStackView: UIView, FTViewableProtocol {
     
     // The scroll container
     let ftScrollView = UIScrollView()
@@ -34,9 +34,7 @@ class FTScrollStackView: UIView, FTViewableProtocol, UIGestureRecognizerDelegate
         ftStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-                
-        ftScrollView.delegate = self
-        
+                        
         translatesAutoresizingMaskIntoConstraints = false
     }
     

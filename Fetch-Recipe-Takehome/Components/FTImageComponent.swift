@@ -23,5 +23,11 @@ class FTImageComponent: UIImageView {
         self.image = image
         return self
     }
+    
+    @discardableResult
+    func ftContentMode(_ contentMode: UIView.ContentMode) -> Self {
+        self.contentMode = contentMode
+        return self
+    }
 
 }

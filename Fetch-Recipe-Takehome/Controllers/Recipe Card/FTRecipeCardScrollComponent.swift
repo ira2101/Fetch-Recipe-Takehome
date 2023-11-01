@@ -8,13 +8,17 @@
 import UIKit
 import SnapKit
 
-class FTRecipeCardScrollComponent: FTVScrollStack {
+class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
+    
+    weak var ftMyDelegate: FTRecipeCardScrollDelegate?
     
     private var statisticsComponent: FTRecipeCardStatisticsComponent!
     
     override init() {
         super.init()
         setupView()
+        
+        ftScrollView.delegate = self
     }
     
     private func setupView() {
@@ -65,6 +69,10 @@ class FTRecipeCardScrollComponent: FTVScrollStack {
     
     private func Steps() -> UIView {
         return FTRecipeCardStepComponent()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        ftMyDelegate?.ftRecipeCardDidScroll(scrollView)
     }
     
 }
