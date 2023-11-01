@@ -39,6 +39,7 @@ class FTRecipeCardIngredientItemCheckmarkComponent: FTToggleButton {
         container =
         FTHStack()
         .ftAddArrangedSubview(
+            guaranteedAlignment: .center,
             Checkmark()
         )
         .ftWidth(28)
@@ -64,7 +65,7 @@ class FTRecipeCardIngredientItemCheckmarkComponent: FTToggleButton {
     
     private func onActivate() {
         container.ftBorder(width: 1, color: .clear)
-        container.ftBackgroundColor(UIColor(hex: 0xFCF3DB))
+        container.ftBackgroundColor(FTColorPalette.primary)
         checkmark.ftIsHidden(false)
     }
     
