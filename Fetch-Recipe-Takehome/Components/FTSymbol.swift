@@ -11,6 +11,8 @@ class FTSymbol: UIImageView, FTViewableProtocol {
     
     enum FTSymbolPalette: String {
         case checkmark = "checkmark"
+        
+        case back = "chevron.backward"
     }
     
     init() {
