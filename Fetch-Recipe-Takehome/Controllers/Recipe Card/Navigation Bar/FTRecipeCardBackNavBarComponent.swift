@@ -7,7 +7,13 @@
 
 import UIKit
 
-class FTRecipeCardBackNavBarComponent: FTButton {
+class FTRecipeCardBackNavBarComponent: FTButton, FTRecipeCardTitleDelegate {
+    
+    private let backgroundAlpha = 0.5
+    
+    private var container: FTHStack!
+    
+    private var symbol: FTSymbol!
 
     override init() {
         super.init()
@@ -29,21 +35,37 @@ class FTRecipeCardBackNavBarComponent: FTButton {
     }
     
     private func Container() -> UIView {
-        return FTHStack()
+        container =
+        FTHStack()
         .ftAddArrangedSubview(
             guaranteedAlignment: .center,
             Symbol()
         )
-        .ftBackgroundColor(.black.withAlphaComponent(0.5))
+        .ftBackgroundColor(.black.withAlphaComponent(backgroundAlpha))
         .ftCapsulateCorners()
         .ftWidth(32)
         .ftHeight(32)
+        return container
     }
     
     private func Symbol() -> UIView {
-        return FTSymbol()
+        symbol =
+        FTSymbol()
         .ftSymbol(.back, textStyle: .title2, weight: .semibold)
         .ftColor(.white)
+        return symbol
+    }
+    
+    func ftRecipeCardTitlePercentOffscreen(percent: CGFloat) {
+        symbol.ftColor(
+            percent == 1.0
+            ? FTColorPalette.labelPrimary
+            : .white
+        )
+                
+        container.ftBackgroundColor(
+            .black.withAlphaComponent(backgroundAlpha * (1.0 - percent))
+        )
     }
 
 }

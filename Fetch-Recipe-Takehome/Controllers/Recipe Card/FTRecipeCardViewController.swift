@@ -14,6 +14,8 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
     
     private var scrollComponent: FTRecipeCardScrollComponent!
     
+    private var backNavBarComponent: FTRecipeCardBackNavBarComponent!
+    
     private var navBackgroud: FTHStack!
     
     // for layout passes
@@ -30,6 +32,7 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
         scrollComponent.ftMyMulticastDelegate.add(backgroundComponent)
         
         scrollComponent.titleComponent.ftMyMulticastDelegate.add(self)
+        scrollComponent.titleComponent.ftMyMulticastDelegate.add(backNavBarComponent)
     }
     
     private func setupView() {
@@ -84,7 +87,8 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
     }
     
     private func BackButton() -> UIView {
-        return FTRecipeCardBackNavBarComponent()
+        backNavBarComponent = FTRecipeCardBackNavBarComponent()
+        return backNavBarComponent
     }
     
     override func viewDidLayoutSubviews() {
