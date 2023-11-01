@@ -25,6 +25,7 @@ class FTFeedRecipeTableCellTagsComponent: FTHScrollStack {
         .ftAddArrangedSubview(
             Tag()
         )
+        .ftSpacing(4)
         .ftAlwaysBounceHorizontal(false)
         .ftshowsHorizontalScrollIndicator(false)
     }

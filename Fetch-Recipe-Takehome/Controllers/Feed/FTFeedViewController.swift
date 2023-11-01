@@ -12,7 +12,11 @@ class FTFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavigationBar()
+        setupView()
+    }
+    
+    private func setupView() {
         view.backgroundColor = UIColor(hex: 0xFAFAFA)
         
         let filterBar = FTFeedHeaderComponent()
@@ -35,7 +39,18 @@ class FTFeedViewController: UIViewController {
             make.top.equalTo(filterBar.snp.bottom)
             make.bottom.equalToSuperview()
         }
-        
+    }
+    
+    private func setupNavigationBar() {
+        let titleItem = UIBarButtonItem(customView: NavigationTitleLabel())
+        navigationItem.leftBarButtonItem = titleItem
+    }
+    
+    private func NavigationTitleLabel() -> UIView {
+        return FTLabel()
+        .ftText("Discover Recipes")
+        .ftTextColor(FTColorPalette.labelPrimary)
+        .ftFont(textStyle: .title2, weight: .semibold)
     }
 
 }
