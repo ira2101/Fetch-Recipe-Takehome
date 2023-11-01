@@ -9,6 +9,10 @@ import UIKit
 
 class FTRecipeCardTitleComponent: FTVStack, FTRecipeCardScrollDelegate {
     
+    var ftMyMulticastDelegate: FTMulticastDelegate<FTRecipeCardTitleDelegate> = .init()
+    
+    private var titleLabel: FTLabel!
+    
     override init() {
         super.init()
         setupView()
@@ -30,11 +34,13 @@ class FTRecipeCardTitleComponent: FTVStack, FTRecipeCardScrollDelegate {
     }
     
     private func TitleLabel() -> UIView {
-        return FTLabel()
+        titleLabel =
+        FTLabel()
         .ftText("Title")
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .title2, weight: .semibold)
         .ftNumberOfLines(0)
+        return titleLabel
     }
     
     private func Stats() -> UIView {
@@ -96,7 +102,35 @@ class FTRecipeCardTitleComponent: FTVStack, FTRecipeCardScrollDelegate {
     }
     
     func ftRecipeCardDidScroll(_ scrollView: UIScrollView) {
+        // Sometimes this function is called before this component has laid out
+        // its subviews
+        if frame == .zero {
+            return
+        }
         
+        // Get the position of the titleLabel on screen
+        let screenFrame = titleLabel.convert(titleLabel.bounds, to: .none)
+        
+        // Get the top inset to account for the space that the navigation bar takes up
+        let screenTopInset = parentViewController?.view.safeAreaInsets.top ?? 0
+        
+        // Get the y position of the titleLabel
+        let yPosition = screenFrame.minY - screenTopInset
+                        
+        // Calculate the percent offscreen that titleLabel is, so that the delegates
+        // can adjust their alpha values by this percentage
+        let percent = abs(yPosition) / screenFrame.height
+        
+        // Somewhere in this interval [0, 1]
+        let adjustedPercent = min(max(0, percent), 1.0)
+        
+        // if yPosition > 0 then adjustedPercent is invalid. Percentage will always
+        // equal zero when yPosition > 0.
+        ftMyMulticastDelegate.invoke { delegate in
+            delegate.ftRecipeCardTitlePercentOffscreen(
+                percent: yPosition < 0 ? adjustedPercent : 0.0
+            )
+        }
     }
 
 }

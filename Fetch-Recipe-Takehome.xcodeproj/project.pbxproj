@@ -53,6 +53,7 @@
 		47B5A5712AF1FDF500C16F16 /* FTRecipeCardBackNavBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5702AF1FDF500C16F16 /* FTRecipeCardBackNavBarComponent.swift */; };
 		47B5A5742AF2019B00C16F16 /* FTRecipeCardScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5732AF2019B00C16F16 /* FTRecipeCardScrollDelegate.swift */; };
 		47B5A5762AF2D94B00C16F16 /* FTMulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5752AF2D94B00C16F16 /* FTMulticastDelegate.swift */; };
+		47B5A5782AF2DCEE00C16F16 /* FTRecipeCardTitleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5772AF2DCEE00C16F16 /* FTRecipeCardTitleDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		47B5A5702AF1FDF500C16F16 /* FTRecipeCardBackNavBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardBackNavBarComponent.swift; sourceTree = "<group>"; };
 		47B5A5732AF2019B00C16F16 /* FTRecipeCardScrollDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardScrollDelegate.swift; sourceTree = "<group>"; };
 		47B5A5752AF2D94B00C16F16 /* FTMulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTMulticastDelegate.swift; sourceTree = "<group>"; };
+		47B5A5772AF2DCEE00C16F16 /* FTRecipeCardTitleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardTitleDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				47B5A5732AF2019B00C16F16 /* FTRecipeCardScrollDelegate.swift */,
+				47B5A5772AF2DCEE00C16F16 /* FTRecipeCardTitleDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				47B5A5512AF1C60900C16F16 /* FTRecipeCardViewController.swift in Sources */,
 				47B5A55C2AF1D65B00C16F16 /* FTRecipeCardTitleComponent.swift in Sources */,
 				47B5A54E2AF1C4DB00C16F16 /* FTFeedHeaderComponent.swift in Sources */,
+				47B5A5782AF2DCEE00C16F16 /* FTRecipeCardTitleDelegate.swift in Sources */,
 				47B5A5542AF1C71400C16F16 /* UIView+ParentViewController.swift in Sources */,
 				47B5A56E2AF1FA9B00C16F16 /* FTImageComponent.swift in Sources */,
 				47B5A55E2AF1D8D300C16F16 /* FTRecipeCardIngredientComponent.swift in Sources */,
