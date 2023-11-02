@@ -11,7 +11,7 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
     private struct Props {
         var model: FTFeedHeaderFilterBarItemModel
-        var onItemPress: (FTToggleButton) -> Void
+        var onItemPress: (FTToggleButton, String) -> Void
     }
     
     private var props: Props
@@ -22,7 +22,7 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     
     private var imageView: FTImageView!
         
-    init(model: FTFeedHeaderFilterBarItemModel, onItemPress: @escaping (FTToggleButton) -> Void) {
+    init(model: FTFeedHeaderFilterBarItemModel, onItemPress: @escaping (FTToggleButton, String) -> Void) {
         props = Props(model: model, onItemPress: onItemPress)
         
         super.init()
@@ -52,7 +52,7 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
         .ftOnPress { [weak self] in
             guard let self = self else { return }
             
-            props.onItemPress(self)
+            props.onItemPress(self, self.props.model.category.type)
         }
     }
     

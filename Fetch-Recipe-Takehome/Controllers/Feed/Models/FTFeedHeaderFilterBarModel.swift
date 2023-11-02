@@ -17,7 +17,11 @@ class FTFeedHeaderFilterBarModel {
         ) { result in
             switch result {
             case .success(let categoriesWrapper):
-                completion(.success(categoriesWrapper.categories))
+                let sortedCategories = categoriesWrapper.categories.sorted(by: {
+                    $0.type < $1.type
+                })
+                
+                completion(.success(sortedCategories))
             case .failure(let failure):
                 completion(.failure(failure))
             }
