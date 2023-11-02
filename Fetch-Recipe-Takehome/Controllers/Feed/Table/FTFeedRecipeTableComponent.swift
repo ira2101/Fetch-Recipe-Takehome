@@ -14,6 +14,8 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
     
     private var resultsCountComponent: FTFeedTableResultsCountComponent!
     
+    private var messageComponent: FTFeedRecipeTableMessageComponent!
+    
     init() {
         model = FTFeedRecipeTableModel()
         
@@ -53,6 +55,16 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         // Necessary, otherwise the tableHeaderView snaps into position upon
         // initial scroll
         tableHeaderView?.layoutIfNeeded()
+        
+        messageComponent = FTFeedRecipeTableMessageComponent()
+        
+        addSubview(messageComponent)
+        
+        messageComponent.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
     }
             
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,9 +120,14 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
             
             switch result {
             case .success(let recipeOverviews):
+                if recipeOverviews.count == 0 {
+                    messageComponent.ftConfigure(message: "No results found")
+                }
+                
                 resultsCountComponent.ftConfigure(count: recipeOverviews.count)
                 self.reloadData()
             case .failure:
+                messageComponent.ftConfigure(message: "An unexpected error has occured")
                 resultsCountComponent.ftConfigure(count: 0)
             }
         }

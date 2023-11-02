@@ -77,6 +77,7 @@
 		47B5A5A82AF33C7000C16F16 /* FTRecipeCardInstructionItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5A72AF33C7000C16F16 /* FTRecipeCardInstructionItemModel.swift */; };
 		47B5A5AA2AF33C7C00C16F16 /* FTRecipeCardInstructionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5A92AF33C7C00C16F16 /* FTRecipeCardInstructionsModel.swift */; };
 		47B5A5AD2AF3492F00C16F16 /* FTFeedHeaderFilterBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5AC2AF3492F00C16F16 /* FTFeedHeaderFilterBarDelegate.swift */; };
+		47B5A5AF2AF357F100C16F16 /* FTFeedRecipeTableMessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5AE2AF357F100C16F16 /* FTFeedRecipeTableMessageComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		47B5A5A72AF33C7000C16F16 /* FTRecipeCardInstructionItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardInstructionItemModel.swift; sourceTree = "<group>"; };
 		47B5A5A92AF33C7C00C16F16 /* FTRecipeCardInstructionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardInstructionsModel.swift; sourceTree = "<group>"; };
 		47B5A5AC2AF3492F00C16F16 /* FTFeedHeaderFilterBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedHeaderFilterBarDelegate.swift; sourceTree = "<group>"; };
+		47B5A5AE2AF357F100C16F16 /* FTFeedRecipeTableMessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableMessageComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,8 +337,9 @@
 		47B5A5412AF19ECD00C16F16 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				47B5A5492AF1AB8500C16F16 /* FTFeedTableResultsCountComponent.swift */,
 				47B5A5422AF19EE100C16F16 /* FTFeedRecipeTableComponent.swift */,
+				47B5A5492AF1AB8500C16F16 /* FTFeedTableResultsCountComponent.swift */,
+				47B5A5AE2AF357F100C16F16 /* FTFeedRecipeTableMessageComponent.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				47B5A5A82AF33C7000C16F16 /* FTRecipeCardInstructionItemModel.swift in Sources */,
 				47B5A5712AF1FDF500C16F16 /* FTRecipeCardBackNavBarComponent.swift in Sources */,
 				47B5A5302AF17EFC00C16F16 /* FTLabel.swift in Sources */,
+				47B5A5AF2AF357F100C16F16 /* FTFeedRecipeTableMessageComponent.swift in Sources */,
 				47B5A53E2AF1987500C16F16 /* FTFeedHeaderFilterBarItemComponent.swift in Sources */,
 				47B5A5652AF1DAF700C16F16 /* FTSymbol.swift in Sources */,
 				47B5A5A22AF33C2100C16F16 /* FTRecipeCardVScrollModel.swift in Sources */,
