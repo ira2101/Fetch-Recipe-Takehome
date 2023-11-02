@@ -65,6 +65,7 @@
 		47B5A58F2AF3147A00C16F16 /* FTInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A58E2AF3147A00C16F16 /* FTInstruction.swift */; };
 		47B5A5912AF3148B00C16F16 /* FTIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5902AF3148B00C16F16 /* FTIngredient.swift */; };
 		47B5A5932AF314B100C16F16 /* FTTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5922AF314B100C16F16 /* FTTag.swift */; };
+		47B5A5952AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5942AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		47B5A58E2AF3147A00C16F16 /* FTInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTInstruction.swift; sourceTree = "<group>"; };
 		47B5A5902AF3148B00C16F16 /* FTIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTIngredient.swift; sourceTree = "<group>"; };
 		47B5A5922AF314B100C16F16 /* FTTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTTag.swift; sourceTree = "<group>"; };
+		47B5A5942AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +401,7 @@
 				47B5A5812AF2F16000C16F16 /* FTFeedHeaderFilterBarModel.swift */,
 				47B5A5862AF30A2700C16F16 /* FTFeedHeaderFilterBarItemModel.swift */,
 				47B5A5882AF30E3300C16F16 /* FTFeedRecipeTableModel.swift */,
+				47B5A5942AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				47B5A5682AF1DF3D00C16F16 /* FTRecipeCardStepComponent.swift in Sources */,
 				47B5A5612AF1D95700C16F16 /* FTRecipeCardIngredientItemComponent.swift in Sources */,
 				47B5A52A2AF17C4100C16F16 /* FTHScrollStack.swift in Sources */,
+				47B5A5952AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift in Sources */,
 				47B5A5262AF179AB00C16F16 /* FTViewableProtocol.swift in Sources */,
 				47B5A5892AF30E3300C16F16 /* FTFeedRecipeTableModel.swift in Sources */,
 				47B5A56A2AF1DF6600C16F16 /* FTRecipeCardStepItemComponent.swift in Sources */,

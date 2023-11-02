@@ -92,3 +92,13 @@ struct FTRecipe: Decodable {
     }
     
 }
+
+struct FTRecipeResponseWrapper: Decodable {
+    
+    let recipe: FTRecipe
+    
+    enum CodingKeys: String, CodingKey {
+        case recipe = "meals"
+    }
+    
+}
