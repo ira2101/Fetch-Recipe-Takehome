@@ -16,6 +16,14 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
     
     private var messageComponent: FTFeedRecipeTableMessageComponent!
     
+    private let loadingSpinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.isHidden = true
+        spinner.stopAnimating()
+        return spinner
+    }()
+    
     init() {
         model = FTFeedRecipeTableModel()
         
@@ -65,6 +73,24 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
             make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
         }
+        
+        addSubview(messageComponent)
+        
+        messageComponent.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
+        
+        addSubview(loadingSpinner)
+        
+        loadingSpinner.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
     }
             
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,10 +139,16 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
     }
     
     func ftFeedHeaderFilterBarDidChangeFilterTo(filter: String) {
+        loadingSpinner.startAnimating()
+        loadingSpinner.isHidden = false
+        
         model.readRecipes(filter: filter) { [weak self] result in
             guard let self = self else {
                 return
             }
+            
+            self.loadingSpinner.stopAnimating()
+            self.loadingSpinner.isHidden = true
             
             switch result {
             case .success(let recipeOverviews):
