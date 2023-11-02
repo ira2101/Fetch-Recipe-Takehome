@@ -22,8 +22,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     
     private var ftImageView: FTImageView!
     
-    // need to keep a reference
-    private var model: FTFeedRecipeTableCellModel?
+    var model: FTFeedRecipeTableCellModel?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

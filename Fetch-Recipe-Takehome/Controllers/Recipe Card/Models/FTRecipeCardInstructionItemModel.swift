@@ -11,8 +11,11 @@ class FTRecipeCardInstructionItemModel {
     
     var instruction: FTInstruction
     
-    init(instruction: FTInstruction) {
+    var instructionNumber: Int
+        
+    init(instruction: FTInstruction, instructionNumber: Int) {
         self.instruction = instruction
+        self.instructionNumber = instructionNumber
     }
     
 }

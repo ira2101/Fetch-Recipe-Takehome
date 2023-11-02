@@ -8,13 +8,20 @@
 import UIKit
 import SnapKit
 
-class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
+class FTRecipeCardVScrollComponent: FTVScrollStack, UIScrollViewDelegate {
+    
+    private struct Props {
+        var model: FTRecipeCardVScrollModel
+    }
+    
+    private let props: Props
     
     var ftMyMulticastDelegate: FTMulticastDelegate<FTRecipeCardScrollDelegate> = .init()
     
-    var titleComponent: FTRecipeCardTitleComponent!
+    var overviewComponent: FTRecipeCardOverviewComponent!
         
-    override init() {
+    init(model: FTRecipeCardVScrollModel) {
+        props = Props(model: model)
         super.init()
         setupView()
         setupDelegates()
@@ -23,19 +30,19 @@ class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
     private func setupDelegates() {
         ftScrollView.delegate = self
         
-        ftMyMulticastDelegate.add(titleComponent)
+        ftMyMulticastDelegate.add(overviewComponent)
     }
     
     private func setupView() {
         self
         .ftAddArrangedSubview(
-            Title()
+            Overview()
         )
         .ftAddArrangedSubview(
             Ingredients()
         )
         .ftAddArrangedSubview(
-            Steps()
+            Instructions()
         )
         .ftPaddingBottom(16)
         
@@ -44,17 +51,23 @@ class FTRecipeCardScrollComponent: FTVScrollStack, UIScrollViewDelegate {
         ftStackView.ftBackgroundColor(UIColor(hex: 0xF6F6F8))
     }
         
-    private func Title() -> UIView {
-        titleComponent = FTRecipeCardTitleComponent()
-        return titleComponent
+    private func Overview() -> UIView {
+        overviewComponent = FTRecipeCardOverviewComponent(
+            model: props.model.createOverviewModel()
+        )
+        return overviewComponent
     }
     
     private func Ingredients() -> UIView {
-        return FTRecipeCardIngredientComponent()
+        return FTRecipeCardIngredientsComponent(
+            model: props.model.createIngredientsModel()
+        )
     }
     
-    private func Steps() -> UIView {
-        return FTRecipeCardStepComponent()
+    private func Instructions() -> UIView {
+        return FTRecipeCardInstructionsComponent(
+            model: props.model.createInstructionsModel()
+        )
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

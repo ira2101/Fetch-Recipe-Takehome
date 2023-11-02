@@ -8,8 +8,15 @@
 import UIKit
 
 class FTRecipeCardIngredientItemComponent: FTHStack {
+    
+    private struct Props {
+        var model: FTRecipeCardIngredientItemModel
+    }
+    
+    private let props: Props
 
-    override init() {
+    init(model: FTRecipeCardIngredientItemModel) {
+        props = Props(model: model)
         super.init()
         setupView()
     }
@@ -28,7 +35,7 @@ class FTRecipeCardIngredientItemComponent: FTHStack {
     
     private func Label() -> UIView {
         return FTLabel()
-        .ftText("Ingredient")
+        .ftText(props.model.ingredient.amount + " " + props.model.ingredient.name)
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .body, weight: .medium)
         .ftNumberOfLines(0)

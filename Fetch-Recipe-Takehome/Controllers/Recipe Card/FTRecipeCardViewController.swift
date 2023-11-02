@@ -10,9 +10,15 @@ import SnapKit
 
 class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
     
-    private var backgroundComponent: FTRecipeCardImageBackgroundComponent!
+    private struct Props {
+        var model: FTRecipeCardViewControllerModel
+    }
     
-    private var scrollComponent: FTRecipeCardScrollComponent!
+    private let props: Props
+    
+    private var backgroundImageComponent: FTRecipeCardBackgroundImageComponent!
+    
+    private var vScrollComponent: FTRecipeCardVScrollComponent!
     
     private var backNavBarComponent: FTRecipeCardBackNavBarComponent!
     
@@ -20,7 +26,16 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
     
     // for layout passes
     private var isFirstPass = true
-
+    
+    init(model: FTRecipeCardViewControllerModel) {
+        props = Props(model: model)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -29,30 +44,34 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
     }
     
     private func setupDelegates() {
-        scrollComponent.ftMyMulticastDelegate.add(backgroundComponent)
+        vScrollComponent.ftMyMulticastDelegate.add(backgroundImageComponent)
         
-        scrollComponent.titleComponent.ftMyMulticastDelegate.add(self)
-        scrollComponent.titleComponent.ftMyMulticastDelegate.add(backNavBarComponent)
+        vScrollComponent.overviewComponent.ftMyMulticastDelegate.add(self)
+        vScrollComponent.overviewComponent.ftMyMulticastDelegate.add(backNavBarComponent)
     }
     
     private func setupView() {
         view.backgroundColor = .systemBackground
 
-        backgroundComponent = FTRecipeCardImageBackgroundComponent()
+        backgroundImageComponent = FTRecipeCardBackgroundImageComponent(
+            model: props.model.createBackgroundImageModel()
+        )
         
-        view.addSubview(backgroundComponent)
+        view.addSubview(backgroundImageComponent)
         
-        backgroundComponent.snp.makeConstraints { make in
+        backgroundImageComponent.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalToSuperview()
         }
                 
-        scrollComponent = FTRecipeCardScrollComponent()
+        vScrollComponent = FTRecipeCardVScrollComponent(
+            model: props.model.createVScrollModel()
+        )
                 
-        view.addSubview(scrollComponent)
+        view.addSubview(vScrollComponent)
         
-        scrollComponent.snp.makeConstraints { make in
+        vScrollComponent.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
@@ -64,7 +83,7 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
         
         navigationItem.titleView =
         FTLabel()
-        .ftText("Title")
+        .ftText(props.model.recipe.mealName)
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .body, weight: .semibold)
         .ftIsHidden(true) // alpha does not work in this case
@@ -95,7 +114,7 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
         super.viewDidLayoutSubviews()
         
         if isFirstPass {
-            scrollComponent.ftScrollView.contentInset.top = backgroundComponent.frame.height
+            vScrollComponent.ftScrollView.contentInset.top = backgroundImageComponent.frame.height
 
             isFirstPass = false
         }

@@ -91,8 +91,22 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? FTFeedRecipeTableCellComponent else {
+            return
+        }
+        
+        guard let cellModel = cell.model else {
+            return
+        }
+        
+        guard let recipeCardModel = cellModel.createRecipeCardModel() else {
+            return
+        }
+        
+        let recipeCardViewController = FTRecipeCardViewController(model: recipeCardModel)
+        
         parentViewController?.navigationController?.pushViewController(
-            FTRecipeCardViewController(),
+            recipeCardViewController,
             animated: true
         )
     }

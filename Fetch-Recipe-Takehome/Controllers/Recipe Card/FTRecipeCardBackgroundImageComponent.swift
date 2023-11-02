@@ -7,13 +7,28 @@
 
 import UIKit
 
-class FTRecipeCardImageBackgroundComponent: FTImageView, FTRecipeCardScrollDelegate {
+class FTRecipeCardBackgroundImageComponent: FTImageView, FTRecipeCardScrollDelegate {
+    
+    private struct Props {
+        var model: FTRecipeCardBackgroundImageModel
+    }
+    
+    private let props: Props
     
     private var heightConstraint: NSLayoutConstraint!
     
-    override init() {
+    init(model: FTRecipeCardBackgroundImageModel) {
+        props = Props(model: model)
+        
         super.init()
+        
         setupView()
+        
+        props.model.readThumbnailImage { [weak self] image in
+            guard let self = self else { return }
+            
+            self.ftImage(image)
+        }
     }
     
     private func setupView() {

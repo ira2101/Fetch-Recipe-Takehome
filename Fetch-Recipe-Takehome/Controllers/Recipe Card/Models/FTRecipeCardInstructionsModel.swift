@@ -15,8 +15,11 @@ class FTRecipeCardInstructionsModel {
         self.instructions = instructions
     }
     
-    func createItemModel(for instruction: FTInstruction) -> FTRecipeCardInstructionItemModel {
-        return FTRecipeCardInstructionItemModel(instruction: instruction)
+    func createItemModel(for index: Int) -> FTRecipeCardInstructionItemModel {
+        return FTRecipeCardInstructionItemModel(
+            instruction: instructions[index],
+            instructionNumber: index + 1
+        )
     }
     
 }

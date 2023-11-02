@@ -65,6 +65,14 @@ class FTFeedRecipeTableCellModel {
         return FTFeedRecipeTableCellTagsModel(tags: recipe?.tags ?? [])
     }
     
+    func createRecipeCardModel() -> FTRecipeCardViewControllerModel? {
+        guard let recipe = recipe else {
+            return nil
+        }
+        
+        return FTRecipeCardViewControllerModel(recipe: recipe)
+    }
+    
     deinit {
         recipeRequest?.cancel()
         imageRequest?.cancel()

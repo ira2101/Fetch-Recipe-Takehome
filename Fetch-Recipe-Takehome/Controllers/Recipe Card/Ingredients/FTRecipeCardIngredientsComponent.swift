@@ -1,5 +1,5 @@
 //
-//  FTRecipeCardStepComponent.swift
+//  FTRecipeCardIngredientComponent.swift
 //  Fetch-Recipe-Takehome
 //
 //  Created by Ira Einbinder on 10/31/23.
@@ -7,9 +7,16 @@
 
 import UIKit
 
-class FTRecipeCardStepComponent: FTVStack {
+class FTRecipeCardIngredientsComponent: FTVStack {
+    
+    private struct Props {
+        var model: FTRecipeCardIngredientsModel
+    }
+    
+    private let props: Props
 
-    override init() {
+    init(model: FTRecipeCardIngredientsModel) {
+        props = Props(model: model)
         super.init()
         setupView()
     }
@@ -28,19 +35,19 @@ class FTRecipeCardStepComponent: FTVStack {
     
     private func TitleLabel() -> UIView {
         return FTLabel()
-        .ftText("Directions")
+        .ftText("Ingredients")
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .title3, weight: .semibold)
     }
     
     private func List() -> UIView {
-        let steps = ["One", "two", "three"]
-        
         return FTVStack()
-        .ftAddArrangedSubview(steps) { _ in
-            return FTRecipeCardStepItemComponent()
+        .ftAddArrangedSubview(props.model.ingredients) {
+            return FTRecipeCardIngredientItemComponent(
+                model: props.model.createItemModel(for: $0)
+            )
         }
         .ftSpacing(12)
     }
-
+    
 }

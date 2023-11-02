@@ -7,13 +7,20 @@
 
 import UIKit
 
-class FTRecipeCardTitleComponent: FTVStack, FTRecipeCardScrollDelegate {
+class FTRecipeCardOverviewComponent: FTVStack, FTRecipeCardScrollDelegate {
+    
+    private struct Props {
+        var model: FTRecipeCardOverviewModel
+    }
+    
+    private let props: Props
     
     var ftMyMulticastDelegate: FTMulticastDelegate<FTRecipeCardTitleDelegate> = .init()
     
     private var titleLabel: FTLabel!
     
-    override init() {
+    init(model: FTRecipeCardOverviewModel) {
+        props = Props(model: model)
         super.init()
         setupView()
     }
@@ -36,7 +43,7 @@ class FTRecipeCardTitleComponent: FTVStack, FTRecipeCardScrollDelegate {
     private func TitleLabel() -> UIView {
         titleLabel =
         FTLabel()
-        .ftText("Title")
+        .ftText(props.model.recipe.mealName)
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .title2, weight: .semibold)
         .ftNumberOfLines(0)
@@ -64,14 +71,14 @@ class FTRecipeCardTitleComponent: FTVStack, FTRecipeCardScrollDelegate {
     private func IngredientsLabel() -> UIView {
         return FTLabel()
         .ftAttributedText(
-            AttributedString(count: 0, thing: "Ingredient")
+            AttributedString(count: props.model.recipe.ingredients.count, thing: "Ingredient")
         )
     }
     
     private func StepsLabel() -> UIView {
         return FTLabel()
         .ftAttributedText(
-            AttributedString(count: 0, thing: "Step")
+            AttributedString(count: props.model.recipe.instructions.count, thing: "Step")
         )
     }
     

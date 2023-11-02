@@ -7,9 +7,16 @@
 
 import UIKit
 
-class FTRecipeCardStepItemComponent: FTVStack {
+class FTRecipeCardInstructionItemComponent: FTVStack {
+    
+    private struct Props {
+        var model: FTRecipeCardInstructionItemModel
+    }
+    
+    private let props: Props
 
-    override init() {
+    init(model: FTRecipeCardInstructionItemModel) {
+        props = Props(model: model)
         super.init()
         setupView()
     }
@@ -30,14 +37,14 @@ class FTRecipeCardStepItemComponent: FTVStack {
     
     private func StepLabel() -> UIView {
         return FTLabel()
-        .ftText("Step 0")
+        .ftText("Step \(props.model.instructionNumber.formatted())")
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .body, weight: .heavy)
     }
     
     private func DescriptionLabel() -> UIView {
         return FTLabel()
-        .ftText("Bring a large pot of water to boil")
+        .ftText(props.model.instruction.text)
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .subheadline, weight: .regular)
         .ftNumberOfLines(0)
