@@ -129,14 +129,14 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
             )
             .ftSpacing(4)
         )
+        .ftSpacer(8)
         .ftAddArrangedSubview(
-            guaranteedAlignment: .leading,
             TitleLabel()
         )
+        .ftSpacer(12)
         .ftAddArrangedSubview(
             Tags()
         )
-        .ftSpacing(8)
     }
     
     private func Category() -> UIView {
@@ -155,7 +155,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
         FTLabel()
         .ftText("Category")
         .ftTextColor(UIColor(hex: 0x0072A3))
-        .ftFont(textStyle: .footnote, weight: .semibold)
+        .ftFont(textStyle: .caption2, weight: .semibold)
         return categoryLabel
     }
     
@@ -175,7 +175,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
         FTLabel()
         .ftText("Area")
         .ftTextColor(UIColor(hex: 0xA68200))
-        .ftFont(textStyle: .footnote, weight: .semibold)
+        .ftFont(textStyle: .caption2, weight: .semibold)
         return areaLabel
     }
     

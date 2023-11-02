@@ -33,7 +33,7 @@ class FTFeedRecipeTableCellTagItemComponent: FTHStack {
         FTLabel()
         .ftText("Tag")
         .ftTextColor(FTColorPalette.labelSecondary)
-        .ftFont(textStyle: .footnote, weight: .medium)
+        .ftFont(textStyle: .caption1, weight: .medium)
         return label
     }
     

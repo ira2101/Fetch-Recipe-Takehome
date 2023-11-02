@@ -32,6 +32,7 @@ class FTFeedRecipeTableCellTagsComponent: FTHScrollStack {
         .ftSpacing(4)
         .ftAlwaysBounceHorizontal(false)
         .ftshowsHorizontalScrollIndicator(false)
+        .ftBounces(false)
     }
     
     func ftConfigure(model: FTFeedRecipeTableCellTagsModel) {
