@@ -9,4 +9,10 @@ import Foundation
 
 class FTRecipeCardIngredientItemModel {
     
+    var ingredient: FTIngredient
+    
+    init(ingredient: FTIngredient) {
+        self.ingredient = ingredient
+    }
+    
 }
