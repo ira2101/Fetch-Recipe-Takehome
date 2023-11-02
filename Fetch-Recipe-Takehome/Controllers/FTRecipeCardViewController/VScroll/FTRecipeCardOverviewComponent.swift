@@ -34,7 +34,7 @@ class FTRecipeCardOverviewComponent: FTVStack, FTRecipeCardScrollDelegate {
             guaranteedAlignment: .leading,
             Stats()
         )
-        .ftSpacing(8)
+        .ftSpacing(16)
         .ftPaddingHorizontal(16)
         .ftPaddingVertical(24)
         .ftBackgroundColor(.systemBackground)
@@ -45,7 +45,7 @@ class FTRecipeCardOverviewComponent: FTVStack, FTRecipeCardScrollDelegate {
         FTLabel()
         .ftText(props.model.recipe.mealName)
         .ftTextColor(FTColorPalette.labelPrimary)
-        .ftFont(textStyle: .title2, weight: .semibold)
+        .ftFont(textStyle: .title1, weight: .semibold)
         .ftNumberOfLines(0)
         return titleLabel
     }
@@ -64,21 +64,27 @@ class FTRecipeCardOverviewComponent: FTVStack, FTRecipeCardScrollDelegate {
         .ftAddArrangedSubview(
             StepsLabel()
         )
-        .ftSpacing(12)
+        .ftSpacing(8)
         .ftAlignment(.center)
     }
     
     private func IngredientsLabel() -> UIView {
         return FTLabel()
         .ftAttributedText(
-            AttributedString(count: props.model.recipe.ingredients.count, thing: "Ingredient")
+            AttributedString(
+                count: props.model.recipe.ingredients.count,
+                thing: "Ingredient"
+            )
         )
     }
     
     private func StepsLabel() -> UIView {
         return FTLabel()
         .ftAttributedText(
-            AttributedString(count: props.model.recipe.instructions.count, thing: "Step")
+            AttributedString(
+                count: props.model.recipe.instructions.count,
+                thing: "Step"
+            )
         )
     }
     
@@ -88,14 +94,14 @@ class FTRecipeCardOverviewComponent: FTVStack, FTRecipeCardScrollDelegate {
             FTAttributedString()
             .ftText(count.formatted())
             .ftTextColor(FTColorPalette.labelPrimary)
-            .ftFont(textStyle: .title3, weight: .bold)
+            .ftFont(textStyle: .body, weight: .semibold)
             .ftBuild()
         )
         .ftAppend(
             FTAttributedString()
             .ftText(" ")
             .ftTextColor(FTColorPalette.labelPrimary)
-            .ftFont(textStyle: .title3, weight: .bold)
+            .ftFont(textStyle: .body, weight: .semibold)
             .ftBuild()
         )
         .ftAppend(

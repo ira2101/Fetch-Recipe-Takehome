@@ -39,14 +39,14 @@ class FTRecipeCardInstructionItemComponent: FTVStack {
         return FTLabel()
         .ftText("Step \(props.model.instructionNumber.formatted())")
         .ftTextColor(FTColorPalette.labelPrimary)
-        .ftFont(textStyle: .body, weight: .heavy)
+        .ftFont(textStyle: .body, weight: .bold)
     }
     
     private func DescriptionLabel() -> UIView {
         return FTLabel()
         .ftText(props.model.instruction.text)
         .ftTextColor(FTColorPalette.labelPrimary)
-        .ftFont(textStyle: .subheadline, weight: .regular)
+        .ftFont(textStyle: .body, weight: .regular)
         .ftNumberOfLines(0)
     }
 

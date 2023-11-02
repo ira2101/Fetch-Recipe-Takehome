@@ -22,8 +22,8 @@ class FTScrollStackView: UIView, FTViewableProtocol {
     init() {
         super.init(frame: .zero)
 
-        ftScrollView.canCancelContentTouches = false
-        ftScrollView.delaysContentTouches = true
+        ftScrollView.canCancelContentTouches = true
+        ftScrollView.delaysContentTouches = false
         
         addSubview(ftScrollView)
         ftScrollView.snp.makeConstraints { make in

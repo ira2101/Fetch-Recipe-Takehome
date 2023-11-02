@@ -26,7 +26,7 @@ class FTFeedViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = UIColor(hex: 0xFAFAFA)
+        view.backgroundColor = UIColor(hex: 0xF8F8F8)
         
         headerComponent = FTFeedHeaderComponent()
         
@@ -53,6 +53,19 @@ class FTFeedViewController: UIViewController {
     private func setupNavigationBar() {
         let titleItem = UIBarButtonItem(customView: NavigationTitleLabel())
         navigationItem.leftBarButtonItem = titleItem
+        
+        let navBackground =
+        FTHStack()
+        .ftBackgroundColor(.systemBackground)
+        
+        view.addSubview(navBackground)
+        
+        navBackground.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top)
+        }
     }
     
     private func NavigationTitleLabel() -> UIView {
