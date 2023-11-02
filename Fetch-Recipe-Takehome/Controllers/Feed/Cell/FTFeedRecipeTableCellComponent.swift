@@ -31,6 +31,10 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
         }
     }
     
+    func ftConfigure(model: FTFeedRecipeTableCellModel) {
+        
+    }
+    
     private func Cell() -> UIView {
         return FTHStack()
         .ftAddArrangedSubview(

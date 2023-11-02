@@ -26,4 +26,8 @@ class FTFeedRecipeTableModel {
         }
     }
     
+    func createTableCellModel(recipeOverview: FTRecipeOverview) -> FTFeedRecipeTableCellModel {
+        return FTFeedRecipeTableCellModel(recipeOverview: recipeOverview)
+    }
+    
 }
