@@ -7,6 +7,12 @@
 
 import Foundation
 
-class FTRecipeCardTitleModel {
+class FTRecipeCardOverviewModel {
+    
+    var recipe: FTRecipe
+    
+    init(recipe: FTRecipe) {
+        self.recipe = recipe
+    }
     
 }
