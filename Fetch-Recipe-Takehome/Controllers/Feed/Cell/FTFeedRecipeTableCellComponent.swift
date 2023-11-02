@@ -43,7 +43,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
             make.edges.equalToSuperview()
         }
     }
-    
+        
     func ftConfigure(model: FTFeedRecipeTableCellModel) {
         self.model = model
         

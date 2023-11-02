@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import SnapKit
 
 class FTImageView: UIImageView, FTViewableProtocol {
+    
+    private var placeholderView: UIView?
 
     init() {
         super.init(frame: .zero)
@@ -29,5 +32,27 @@ class FTImageView: UIImageView, FTViewableProtocol {
         self.contentMode = contentMode
         return self
     }
+    
+    @discardableResult
+    func ftPlaceholder(_ view: UIView) -> Self {
+        self.placeholderView = view
+        
+        addSubview(view)
+        
+        view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        return self
+    }
+    
+    @discardableResult
+    func ftShouldShowPlaceholder(_ shouldShowPlaceholder: Bool) -> Self {
+        placeholderView?.isHidden = !shouldShowPlaceholder
+        
+        return self
+    }
+    
+    
 
 }
