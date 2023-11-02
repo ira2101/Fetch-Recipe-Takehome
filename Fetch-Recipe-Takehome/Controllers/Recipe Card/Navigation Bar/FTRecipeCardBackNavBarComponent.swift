@@ -9,13 +9,20 @@ import UIKit
 
 class FTRecipeCardBackNavBarComponent: FTButton, FTRecipeCardTitleDelegate {
     
+    private struct Props {
+        var dismissViewController: () -> Void
+    }
+    
+    private let props: Props
+    
     private let backgroundAlpha = 0.5
     
     private var container: FTHStack!
     
     private var symbol: FTSymbol!
 
-    override init() {
+    init(dismissViewController: @escaping () -> Void) {
+        props = Props(dismissViewController: dismissViewController)
         super.init()
         setupView()
     }
@@ -28,10 +35,9 @@ class FTRecipeCardBackNavBarComponent: FTButton, FTRecipeCardTitleDelegate {
         .ftOnPress { [weak self] in
             guard let self = self else { return }
             
-            self.parentViewController?.navigationController?.popViewController(
-                animated: true
-            )
+            self.props.dismissViewController()
         }
+        .ftCancelsTouchesInView(true)
     }
     
     private func Container() -> UIView {

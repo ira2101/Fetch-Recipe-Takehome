@@ -106,7 +106,13 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
     }
     
     private func BackButton() -> UIView {
-        backNavBarComponent = FTRecipeCardBackNavBarComponent()
+        backNavBarComponent = FTRecipeCardBackNavBarComponent(
+            dismissViewController: { [weak self] in
+                guard let self = self else { return }
+                
+                self.dismissViewController()
+            }
+        )
         return backNavBarComponent
     }
     
@@ -124,6 +130,10 @@ class FTRecipeCardViewController: UIViewController, FTRecipeCardTitleDelegate {
         navigationItem.titleView?.alpha = percent
         navigationItem.titleView?.isHidden = percent == 0.0
         navBackgroud.alpha = percent
+    }
+    
+    func dismissViewController() {
+        navigationController?.popViewController(animated: true)
     }
     
 }
