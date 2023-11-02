@@ -305,23 +305,23 @@
 		47B5A5362AF1975900C16F16 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				47B5A54F2AF1C5BF00C16F16 /* Recipe Card */,
-				47B5A5392AF197EC00C16F16 /* Feed */,
+				47B5A54F2AF1C5BF00C16F16 /* FTRecipeCardViewController */,
+				47B5A5392AF197EC00C16F16 /* FTFeedViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		47B5A5392AF197EC00C16F16 /* Feed */ = {
+		47B5A5392AF197EC00C16F16 /* FTFeedViewController */ = {
 			isa = PBXGroup;
 			children = (
 				47B5A5AB2AF3492200C16F16 /* Delegates */,
 				47B5A5802AF2F13200C16F16 /* Models */,
+				47B5A5B02AF366CF00C16F16 /* Controller */,
 				47B5A53A2AF197FE00C16F16 /* Header */,
 				47B5A5412AF19ECD00C16F16 /* Table */,
 				47B5A5442AF19FDB00C16F16 /* Cell */,
-				47B5A5372AF1977300C16F16 /* FTFeedViewController.swift */,
 			);
-			path = Feed;
+			path = FTFeedViewController;
 			sourceTree = "<group>";
 		};
 		47B5A53A2AF197FE00C16F16 /* Header */ = {
@@ -354,20 +354,17 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		47B5A54F2AF1C5BF00C16F16 /* Recipe Card */ = {
+		47B5A54F2AF1C5BF00C16F16 /* FTRecipeCardViewController */ = {
 			isa = PBXGroup;
 			children = (
 				47B5A59A2AF33BB200C16F16 /* Models */,
 				47B5A5722AF2016800C16F16 /* Delegates */,
+				47B5A5B12AF366F300C16F16 /* Controller */,
 				47B5A56F2AF1FDC700C16F16 /* Navigation Bar */,
-				47B5A5662AF1DF2800C16F16 /* Steps */,
-				47B5A55F2AF1D92A00C16F16 /* Ingredients */,
-				47B5A5502AF1C60900C16F16 /* FTRecipeCardViewController.swift */,
-				47B5A5552AF1C7AF00C16F16 /* FTRecipeCardBackgroundImageComponent.swift */,
-				47B5A55B2AF1D65B00C16F16 /* FTRecipeCardOverviewComponent.swift */,
-				47B5A56B2AF1E1C400C16F16 /* FTRecipeCardVScrollComponent.swift */,
+				47B5A5B22AF3674600C16F16 /* VScroll */,
+				47B5A5B32AF3676700C16F16 /* Background Image */,
 			);
-			path = "Recipe Card";
+			path = FTRecipeCardViewController;
 			sourceTree = "<group>";
 		};
 		47B5A5522AF1C69500C16F16 /* Extensions */ = {
@@ -388,13 +385,13 @@
 			path = Ingredients;
 			sourceTree = "<group>";
 		};
-		47B5A5662AF1DF2800C16F16 /* Steps */ = {
+		47B5A5662AF1DF2800C16F16 /* Instructions */ = {
 			isa = PBXGroup;
 			children = (
 				47B5A5672AF1DF3D00C16F16 /* FTRecipeCardInstructionsComponent.swift */,
 				47B5A5692AF1DF6600C16F16 /* FTRecipeCardInstructionItemComponent.swift */,
 			);
-			path = Steps;
+			path = Instructions;
 			sourceTree = "<group>";
 		};
 		47B5A56F2AF1FDC700C16F16 /* Navigation Bar */ = {
@@ -469,6 +466,41 @@
 				47B5A5AC2AF3492F00C16F16 /* FTFeedHeaderFilterBarDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		47B5A5B02AF366CF00C16F16 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A5372AF1977300C16F16 /* FTFeedViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		47B5A5B12AF366F300C16F16 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A5502AF1C60900C16F16 /* FTRecipeCardViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		47B5A5B22AF3674600C16F16 /* VScroll */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A55F2AF1D92A00C16F16 /* Ingredients */,
+				47B5A5662AF1DF2800C16F16 /* Instructions */,
+				47B5A55B2AF1D65B00C16F16 /* FTRecipeCardOverviewComponent.swift */,
+				47B5A56B2AF1E1C400C16F16 /* FTRecipeCardVScrollComponent.swift */,
+			);
+			path = VScroll;
+			sourceTree = "<group>";
+		};
+		47B5A5B32AF3676700C16F16 /* Background Image */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A5552AF1C7AF00C16F16 /* FTRecipeCardBackgroundImageComponent.swift */,
+			);
+			path = "Background Image";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
