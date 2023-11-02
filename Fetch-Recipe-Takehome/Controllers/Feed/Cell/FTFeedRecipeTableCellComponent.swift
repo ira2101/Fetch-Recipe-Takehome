@@ -59,7 +59,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
             self.tagsComponent.ftConfigure(model: model.createTagsModel())
             
             model.readThumbnailImage { image in
-                self.ftImageView.image = image
+                self.ftImageView.ftImage(image)
             }
         }
     }
@@ -108,8 +108,12 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     private func ImageView() -> UIView {
         ftImageView =
         FTImageView()
-        .ftImage(UIImage(named: "default"))
         .ftContentMode(.scaleAspectFill)
+        .ftPlaceholder(
+            FTHStack()
+            .ftBackgroundColor(FTColorPalette.placeholder)
+        )
+        .ftShowPlaceholder(true)
         return ftImageView
     }
     
@@ -194,6 +198,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         tagsComponent.ftPrepareForReuse()
+        ftImageView.ftShowPlaceholder(true)
     }
     
 }

@@ -23,7 +23,10 @@ class FTImageView: UIImageView, FTViewableProtocol {
     
     @discardableResult
     func ftImage(_ image: UIImage?) -> Self {
+        placeholderView?.isHidden = image != nil
+        
         self.image = image
+        
         return self
     }
     
@@ -47,7 +50,7 @@ class FTImageView: UIImageView, FTViewableProtocol {
     }
     
     @discardableResult
-    func ftShouldShowPlaceholder(_ shouldShowPlaceholder: Bool) -> Self {
+    func ftShowPlaceholder(_ shouldShowPlaceholder: Bool) -> Self {
         placeholderView?.isHidden = !shouldShowPlaceholder
         
         return self

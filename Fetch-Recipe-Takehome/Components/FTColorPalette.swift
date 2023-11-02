@@ -16,6 +16,8 @@ class FTColorPalette {
     static let labelSecondary = UIColor(hex: 0x888C93)
     
     static let separator = UIColor(hex: 0xC9D1DE)
+    
+    static let placeholder = UIColor(hex: 0xE9E9E9)
 
 }
 

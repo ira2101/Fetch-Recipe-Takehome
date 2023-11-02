@@ -34,7 +34,7 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
                 return
             }
             
-            self.imageView.image = image
+            self.imageView.ftImage(image)
         }
     }
 
@@ -95,7 +95,11 @@ class FTFeedHeaderFilterBarItemComponent: FTToggleButton {
     private func ImageView() -> UIView {
         imageView =
         FTImageView()
-        .ftImage(UIImage(named: "default"))
+        .ftPlaceholder(
+            FTHStack()
+            .ftBackgroundColor(FTColorPalette.placeholder)
+        )
+        .ftShowPlaceholder(true)
         .ftContentMode(.scaleAspectFill)
         return imageView
     }

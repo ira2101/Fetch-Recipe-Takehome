@@ -18,7 +18,11 @@ class FTRecipeCardImageBackgroundComponent: FTImageView, FTRecipeCardScrollDeleg
     
     private func setupView() {
         self
-        .ftImage(UIImage(named: "default"))
+        .ftPlaceholder(
+            FTHStack()
+            .ftBackgroundColor(FTColorPalette.placeholder)
+        )
+        .ftShowPlaceholder(true)
         .ftContentMode(.scaleAspectFill)
         .ftClipsToBounds(true)
         
