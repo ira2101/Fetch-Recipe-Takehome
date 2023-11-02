@@ -68,6 +68,14 @@
 		47B5A5952AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5942AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift */; };
 		47B5A5972AF324D300C16F16 /* FTFeedRecipeTableCellTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5962AF324D300C16F16 /* FTFeedRecipeTableCellTagsModel.swift */; };
 		47B5A5992AF3271600C16F16 /* FTFeedRecipeTableCellTagItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5982AF3271600C16F16 /* FTFeedRecipeTableCellTagItemComponent.swift */; };
+		47B5A59C2AF33BC500C16F16 /* FTRecipeCardTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A59B2AF33BC500C16F16 /* FTRecipeCardTitleModel.swift */; };
+		47B5A59E2AF33BEC00C16F16 /* FTRecipeCardImageBackgroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A59D2AF33BEC00C16F16 /* FTRecipeCardImageBackgroundModel.swift */; };
+		47B5A5A02AF33C0700C16F16 /* FTRecipeCardViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A59F2AF33C0700C16F16 /* FTRecipeCardViewControllerModel.swift */; };
+		47B5A5A22AF33C2100C16F16 /* FTRecipeCardScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5A12AF33C2100C16F16 /* FTRecipeCardScrollModel.swift */; };
+		47B5A5A42AF33C5600C16F16 /* FTRecipeCardIngredientItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5A32AF33C5600C16F16 /* FTRecipeCardIngredientItemModel.swift */; };
+		47B5A5A62AF33C6400C16F16 /* FTRecipeCardIngredientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5A52AF33C6400C16F16 /* FTRecipeCardIngredientModel.swift */; };
+		47B5A5A82AF33C7000C16F16 /* FTRecipeCardStepItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5A72AF33C7000C16F16 /* FTRecipeCardStepItemModel.swift */; };
+		47B5A5AA2AF33C7C00C16F16 /* FTRecipeCardStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A5A92AF33C7C00C16F16 /* FTRecipeCardStepModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +159,14 @@
 		47B5A5942AF31F5C00C16F16 /* FTFeedRecipeTableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableCellModel.swift; sourceTree = "<group>"; };
 		47B5A5962AF324D300C16F16 /* FTFeedRecipeTableCellTagsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableCellTagsModel.swift; sourceTree = "<group>"; };
 		47B5A5982AF3271600C16F16 /* FTFeedRecipeTableCellTagItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableCellTagItemComponent.swift; sourceTree = "<group>"; };
+		47B5A59B2AF33BC500C16F16 /* FTRecipeCardTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardTitleModel.swift; sourceTree = "<group>"; };
+		47B5A59D2AF33BEC00C16F16 /* FTRecipeCardImageBackgroundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardImageBackgroundModel.swift; sourceTree = "<group>"; };
+		47B5A59F2AF33C0700C16F16 /* FTRecipeCardViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardViewControllerModel.swift; sourceTree = "<group>"; };
+		47B5A5A12AF33C2100C16F16 /* FTRecipeCardScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardScrollModel.swift; sourceTree = "<group>"; };
+		47B5A5A32AF33C5600C16F16 /* FTRecipeCardIngredientItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardIngredientItemModel.swift; sourceTree = "<group>"; };
+		47B5A5A52AF33C6400C16F16 /* FTRecipeCardIngredientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardIngredientModel.swift; sourceTree = "<group>"; };
+		47B5A5A72AF33C7000C16F16 /* FTRecipeCardStepItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardStepItemModel.swift; sourceTree = "<group>"; };
+		47B5A5A92AF33C7C00C16F16 /* FTRecipeCardStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardStepModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +351,7 @@
 		47B5A54F2AF1C5BF00C16F16 /* Recipe Card */ = {
 			isa = PBXGroup;
 			children = (
+				47B5A59A2AF33BB200C16F16 /* Models */,
 				47B5A5722AF2016800C16F16 /* Delegates */,
 				47B5A56F2AF1FDC700C16F16 /* Navigation Bar */,
 				47B5A5662AF1DF2800C16F16 /* Steps */,
@@ -421,6 +438,21 @@
 				47B5A58E2AF3147A00C16F16 /* FTInstruction.swift */,
 				47B5A5902AF3148B00C16F16 /* FTIngredient.swift */,
 				47B5A5922AF314B100C16F16 /* FTTag.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		47B5A59A2AF33BB200C16F16 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47B5A59B2AF33BC500C16F16 /* FTRecipeCardTitleModel.swift */,
+				47B5A59D2AF33BEC00C16F16 /* FTRecipeCardImageBackgroundModel.swift */,
+				47B5A59F2AF33C0700C16F16 /* FTRecipeCardViewControllerModel.swift */,
+				47B5A5A12AF33C2100C16F16 /* FTRecipeCardScrollModel.swift */,
+				47B5A5A32AF33C5600C16F16 /* FTRecipeCardIngredientItemModel.swift */,
+				47B5A5A52AF33C6400C16F16 /* FTRecipeCardIngredientModel.swift */,
+				47B5A5A72AF33C7000C16F16 /* FTRecipeCardStepItemModel.swift */,
+				47B5A5A92AF33C7C00C16F16 /* FTRecipeCardStepModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -570,7 +602,9 @@
 				47B5A5382AF1977300C16F16 /* FTFeedViewController.swift in Sources */,
 				47B5A4F02AF1776500C16F16 /* ViewController.swift in Sources */,
 				47B5A5912AF3148B00C16F16 /* FTIngredient.swift in Sources */,
+				47B5A5A62AF33C6400C16F16 /* FTRecipeCardIngredientModel.swift in Sources */,
 				47B5A4EC2AF1776500C16F16 /* AppDelegate.swift in Sources */,
+				47B5A59E2AF33BEC00C16F16 /* FTRecipeCardImageBackgroundModel.swift in Sources */,
 				47B5A51F2AF1790000C16F16 /* FTHStack.swift in Sources */,
 				47B5A5212AF1792C00C16F16 /* FTStackView.swift in Sources */,
 				47B5A4EE2AF1776500C16F16 /* SceneDelegate.swift in Sources */,
@@ -580,6 +614,7 @@
 				47B5A56C2AF1E1C400C16F16 /* FTRecipeCardScrollComponent.swift in Sources */,
 				47B5A55A2AF1C99F00C16F16 /* FTFormatter.swift in Sources */,
 				47B5A57E2AF2ECC100C16F16 /* FTNetworking.swift in Sources */,
+				47B5A5A42AF33C5600C16F16 /* FTRecipeCardIngredientItemModel.swift in Sources */,
 				47B5A53C2AF1981100C16F16 /* FTFeedHeaderFilterBarComponent.swift in Sources */,
 				47B5A54C2AF1ABEA00C16F16 /* FTAttributedString.swift in Sources */,
 				47B5A5632AF1D96300C16F16 /* FTRecipeCardIngredientItemCheckmarkComponent.swift in Sources */,
@@ -598,6 +633,8 @@
 				47B5A5822AF2F16000C16F16 /* FTFeedHeaderFilterBarModel.swift in Sources */,
 				47B5A52E2AF17C6100C16F16 /* FTScrollStackView.swift in Sources */,
 				47B5A5342AF1808A00C16F16 /* FTToggleButton.swift in Sources */,
+				47B5A59C2AF33BC500C16F16 /* FTRecipeCardTitleModel.swift in Sources */,
+				47B5A5A02AF33C0700C16F16 /* FTRecipeCardViewControllerModel.swift in Sources */,
 				47B5A5322AF17F7F00C16F16 /* FTButton.swift in Sources */,
 				47B5A5742AF2019B00C16F16 /* FTRecipeCardScrollDelegate.swift in Sources */,
 				47B5A52C2AF17C4F00C16F16 /* FTVScrollStack.swift in Sources */,
@@ -605,6 +642,7 @@
 				47B5A5932AF314B100C16F16 /* FTTag.swift in Sources */,
 				47B5A5402AF1990C00C16F16 /* FTColorPalette.swift in Sources */,
 				47B5A54A2AF1AB8500C16F16 /* FTFeedInfoComponent.swift in Sources */,
+				47B5A5AA2AF33C7C00C16F16 /* FTRecipeCardStepModel.swift in Sources */,
 				47B5A58D2AF312B800C16F16 /* FTRecipe.swift in Sources */,
 				47B5A5682AF1DF3D00C16F16 /* FTRecipeCardStepComponent.swift in Sources */,
 				47B5A5612AF1D95700C16F16 /* FTRecipeCardIngredientItemComponent.swift in Sources */,
@@ -613,10 +651,12 @@
 				47B5A5262AF179AB00C16F16 /* FTViewableProtocol.swift in Sources */,
 				47B5A5892AF30E3300C16F16 /* FTFeedRecipeTableModel.swift in Sources */,
 				47B5A56A2AF1DF6600C16F16 /* FTRecipeCardStepItemComponent.swift in Sources */,
+				47B5A5A82AF33C7000C16F16 /* FTRecipeCardStepItemModel.swift in Sources */,
 				47B5A5712AF1FDF500C16F16 /* FTRecipeCardBackNavBarComponent.swift in Sources */,
 				47B5A5302AF17EFC00C16F16 /* FTLabel.swift in Sources */,
 				47B5A53E2AF1987500C16F16 /* FTFeedHeaderFilterBarItemComponent.swift in Sources */,
 				47B5A5652AF1DAF700C16F16 /* FTSymbol.swift in Sources */,
+				47B5A5A22AF33C2100C16F16 /* FTRecipeCardScrollModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,9 +30,6 @@ class FTRecipeCardIngredientItemCheckmarkComponent: FTToggleButton {
             
             self.toggleButtonDidChangeState(isActive)
         }
-        .ftOnPress {
-            print("pressed")
-        }
     }
     
     private func Container() -> UIView {
