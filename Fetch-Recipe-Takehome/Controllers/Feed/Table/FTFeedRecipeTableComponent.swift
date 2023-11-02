@@ -12,6 +12,8 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
     
     private let model: FTFeedRecipeTableModel
     
+    private var resultsCountComponent: FTFeedTableResultsCountComponent!
+    
     init() {
         model = FTFeedRecipeTableModel()
         
@@ -37,10 +39,10 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         
         contentInset.top = 12
                 
-        let infoComponent = FTFeedInfoComponent()
-        infoComponent.translatesAutoresizingMaskIntoConstraints = true
+        resultsCountComponent = FTFeedTableResultsCountComponent()
+        resultsCountComponent.translatesAutoresizingMaskIntoConstraints = true
 
-        tableHeaderView = infoComponent
+        tableHeaderView = resultsCountComponent
 
         tableHeaderView?.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -105,10 +107,11 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
             }
             
             switch result {
-            case .success:
+            case .success(let recipeOverviews):
+                resultsCountComponent.ftConfigure(count: recipeOverviews.count)
                 self.reloadData()
             case .failure:
-                print("We will do something here")
+                resultsCountComponent.ftConfigure(count: 0)
             }
         }
     }

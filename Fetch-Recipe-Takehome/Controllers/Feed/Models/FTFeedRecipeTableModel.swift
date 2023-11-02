@@ -14,7 +14,7 @@ class FTFeedRecipeTableModel {
     
     private var recipesRequest: DataRequest?
     
-    func readRecipes(filter: String = "Dessert", completion: @escaping (Result<Void, Error>) -> Void) {
+    func readRecipes(filter: String = "Dessert", completion: @escaping (Result<[FTRecipeOverview], Error>) -> Void) {
         recipesRequest?.cancel()
         
         recipesRequest = FTNetworking.readObject(type: FTRecipeOverviewResponseWrapper.self, uri: "/api/json/v1/1/filter.php", parameters: ["c": filter]) { [weak self] result in
@@ -24,7 +24,7 @@ class FTFeedRecipeTableModel {
             case .success(let recipeOverviewWrapper):
                 self.recipeOverviews = recipeOverviewWrapper.recipeOverviews
                 
-                completion(.success(()))
+                completion(.success(recipeOverviewWrapper.recipeOverviews))
             case .failure(let failure):
                 completion(.failure(failure))
             }

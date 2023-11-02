@@ -23,13 +23,11 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
             
             ftScrollRectToVisible(selectedItem.frame, animated: true)
             
-            ftMyMulticastDelegate.invoke { delegate in
-                delegate.ftFeedHeaderFilterBarDidChangeFilterTo(filter: state)
-            }
+            ftMyDelegate?.ftFeedHeaderFilterBarDidChangeFilterTo(filter: state)
         }
     }
     
-    var ftMyMulticastDelegate: FTMulticastDelegate<FTFeedHeaderFilterBarDelegate> = .init()
+    weak var ftMyDelegate: FTFeedHeaderFilterBarDelegate?
 
     private var items: [String : FTFeedHeaderFilterBarItemComponent] = [:]
     

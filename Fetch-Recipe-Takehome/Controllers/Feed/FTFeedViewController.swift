@@ -22,7 +22,7 @@ class FTFeedViewController: UIViewController {
     }
     
     private func setupDelegates() {
-        headerComponent.filterBarComponent.ftMyMulticastDelegate.add(tableComponent)
+        headerComponent.filterBarComponent.ftMyDelegate = tableComponent
     }
     
     private func setupView() {
