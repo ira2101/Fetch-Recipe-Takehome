@@ -2,7 +2,7 @@
 //  FTFeedRecipeTableModel.swift
 //  Fetch-Recipe-Takehome
 //
-//  Created by Ira Einbinder on 11/1/23.
+//  Created by Ira Einbinder on 11/1/23.d
 //
 
 import Foundation
@@ -22,9 +22,13 @@ class FTFeedRecipeTableModel {
             
             switch result {
             case .success(let recipeOverviewWrapper):
-                self.recipeOverviews = recipeOverviewWrapper.recipeOverviews
+                let sortedRecipeOverviews = recipeOverviewWrapper.recipeOverviews.sorted(by: {
+                    $0.mealName < $1.mealName
+                })
                 
-                completion(.success(recipeOverviewWrapper.recipeOverviews))
+                self.recipeOverviews = sortedRecipeOverviews
+                
+                completion(.success(sortedRecipeOverviews))
             case .failure(let failure):
                 completion(.failure(failure))
             }
