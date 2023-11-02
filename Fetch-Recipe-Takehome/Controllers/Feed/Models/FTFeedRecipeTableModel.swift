@@ -9,11 +9,17 @@ import Foundation
 
 class FTFeedRecipeTableModel {
     
-    func readRecipes(completion: @escaping (Result<[FTRecipeOverview], Error>) -> Void) {
-        FTNetworking.readObject(type: FTRecipeOverviewResponseWrapper.self, uri: "/api/json/v1/1/filter.php?c=Dessert") { result in
+    var recipeOverviews: [FTRecipeOverview]?
+    
+    func readRecipes(completion: @escaping (Result<Void, Error>) -> Void) {
+        FTNetworking.readObject(type: FTRecipeOverviewResponseWrapper.self, uri: "/api/json/v1/1/filter.php?c=Dessert") { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let recipeOverviewWrapper):
-                completion(.success(recipeOverviewWrapper.recipeOverviews))
+                self.recipeOverviews = recipeOverviewWrapper.recipeOverviews
+                
+                completion(.success(()))
             case .failure(let failure):
                 completion(.failure(failure))
             }

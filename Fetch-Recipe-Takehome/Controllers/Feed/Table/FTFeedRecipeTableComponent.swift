@@ -10,7 +10,11 @@ import SnapKit
 
 class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource {
     
+    private let model: FTFeedRecipeTableModel
+    
     init() {
+        model = FTFeedRecipeTableModel()
+        
         super.init(frame: .zero, style: .plain)
         
         delegate = self
@@ -22,6 +26,19 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         )
         
         setupView()
+        
+        model.readRecipes { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success:
+                self.reloadData()
+            case .failure:
+                print("We will do something here")
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +67,7 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
     }
             
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return model.recipeOverviews?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
