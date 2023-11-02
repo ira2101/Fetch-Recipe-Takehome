@@ -8,6 +8,8 @@
 import UIKit
 
 class FTFeedHeaderComponent: FTHStack {
+    
+    var filterBarComponent: FTFeedHeaderFilterBarComponent!
 
     override init() {
         super.init()
@@ -24,7 +26,8 @@ class FTFeedHeaderComponent: FTHStack {
     }
     
     private func FilterBar() -> UIView {
-        return FTFeedHeaderFilterBarComponent()
+        filterBarComponent = FTFeedHeaderFilterBarComponent()
+        return filterBarComponent
     }
 
 }

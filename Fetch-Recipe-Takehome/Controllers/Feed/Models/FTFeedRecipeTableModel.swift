@@ -6,13 +6,18 @@
 //
 
 import Foundation
+import Alamofire
 
 class FTFeedRecipeTableModel {
     
     var recipeOverviews: [FTRecipeOverview]?
     
-    func readRecipes(completion: @escaping (Result<Void, Error>) -> Void) {
-        FTNetworking.readObject(type: FTRecipeOverviewResponseWrapper.self, uri: "/api/json/v1/1/filter.php?c=Dessert") { [weak self] result in
+    private var recipesRequest: DataRequest?
+    
+    func readRecipes(filter: String = "Dessert", completion: @escaping (Result<Void, Error>) -> Void) {
+        recipesRequest?.cancel()
+        
+        recipesRequest = FTNetworking.readObject(type: FTRecipeOverviewResponseWrapper.self, uri: "/api/json/v1/1/filter.php", parameters: ["c": filter]) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

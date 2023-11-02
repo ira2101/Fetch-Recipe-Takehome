@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource {
+class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewDataSource, FTFeedHeaderFilterBarDelegate {
     
     private let model: FTFeedRecipeTableModel
     
@@ -26,19 +26,6 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         )
         
         setupView()
-        
-        model.readRecipes { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            
-            switch result {
-            case .success:
-                self.reloadData()
-            case .failure:
-                print("We will do something here")
-            }
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -109,6 +96,21 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
             recipeCardViewController,
             animated: true
         )
+    }
+    
+    func ftFeedHeaderFilterBarDidChangeFilterTo(filter: String) {
+        model.readRecipes(filter: filter) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success:
+                self.reloadData()
+            case .failure:
+                print("We will do something here")
+            }
+        }
     }
 
 }

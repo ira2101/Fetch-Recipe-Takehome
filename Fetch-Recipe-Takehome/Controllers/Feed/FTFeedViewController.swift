@@ -9,34 +9,43 @@ import UIKit
 import SnapKit
 
 class FTFeedViewController: UIViewController {
+    
+    private var headerComponent: FTFeedHeaderComponent!
+    
+    private var tableComponent: FTFeedRecipeTableComponent!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupView()
+        setupDelegates()
+    }
+    
+    private func setupDelegates() {
+        headerComponent.filterBarComponent.ftMyMulticastDelegate.add(tableComponent)
     }
     
     private func setupView() {
         view.backgroundColor = UIColor(hex: 0xFAFAFA)
         
-        let filterBar = FTFeedHeaderComponent()
+        headerComponent = FTFeedHeaderComponent()
         
-        view.addSubview(filterBar)
+        view.addSubview(headerComponent)
         
-        filterBar.snp.makeConstraints { make in
+        headerComponent.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
         
-        let table = FTFeedRecipeTableComponent()
+        tableComponent = FTFeedRecipeTableComponent()
         
-        view.addSubview(table)
+        view.addSubview(tableComponent)
         
-        table.snp.makeConstraints { make in
+        tableComponent.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.top.equalTo(filterBar.snp.bottom)
+            make.top.equalTo(headerComponent.snp.bottom)
             make.bottom.equalToSuperview()
         }
     }
