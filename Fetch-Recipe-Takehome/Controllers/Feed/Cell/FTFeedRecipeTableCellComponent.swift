@@ -82,7 +82,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
             RightContainer()
         )
         .ftSpacing(12)
-        .ftAlignment(.center)
+        .ftAlignment(.top)
         .ftPadding(8)
         .ftBackgroundColor(.white)
         .ftCornerRadius(8)

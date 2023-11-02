@@ -9,6 +9,6 @@ import Foundation
 
 protocol FTFeedHeaderFilterBarDelegate: AnyObject {
     
-    func ftFeedHeaderFilterBarDidChangeFilterTo(filter: String)
+    func ftFeedHeaderFilterBarDidChangeFilterTo(filter: String?)
     
 }

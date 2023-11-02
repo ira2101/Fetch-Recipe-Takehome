@@ -17,7 +17,7 @@ class FTFeedRecipeTableCellTagsComponent: FTHScrollStack {
         super.init()
         setupView()
     }
-    
+        
     private func setupView() {
         // I decided that a recipe can show no more than five tags
         for _ in 0..<maxNumberOfTags {

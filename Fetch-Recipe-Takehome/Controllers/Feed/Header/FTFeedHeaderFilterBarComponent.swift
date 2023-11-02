@@ -12,6 +12,8 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
     private var state: String? = .none {
         didSet {
             guard let state = state else {
+                // Let the table know that an error has occurred!
+                ftMyDelegate?.ftFeedHeaderFilterBarDidChangeFilterTo(filter: nil)
                 return
             }
             
@@ -47,6 +49,7 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
             case .success(let categories):
                 self.successfullyReadCategories(categories: categories)
             case .failure:
+                self.state = nil
                 // There is nothing we want to do if we can't fetch results. We will show
                 // in the tableView if we are unable to fetch any results.
                 break

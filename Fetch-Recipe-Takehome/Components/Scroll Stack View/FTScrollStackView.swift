@@ -22,8 +22,8 @@ class FTScrollStackView: UIView, FTViewableProtocol {
     init() {
         super.init(frame: .zero)
 
-        ftScrollView.canCancelContentTouches = true
-        ftScrollView.delaysContentTouches = false
+        ftScrollView.canCancelContentTouches = false
+        ftScrollView.delaysContentTouches = true
         
         addSubview(ftScrollView)
         ftScrollView.snp.makeConstraints { make in
@@ -54,7 +54,12 @@ class FTScrollStackView: UIView, FTViewableProtocol {
             
             shadowClippingMask = CALayer()
             shadowClippingMask.backgroundColor = UIColor.black.cgColor
-            shadowClippingMask.frame = CGRect(x: -5, y: -5, width: ftScrollView.frame.width + 10, height: ftScrollView.frame.height + 10)
+            shadowClippingMask.frame = CGRect(
+                x: -5,
+                y: -5,
+                width: ftScrollView.frame.width + 10,
+                height: ftScrollView.frame.height + 10
+            )
             
             layer.mask = shadowClippingMask
             

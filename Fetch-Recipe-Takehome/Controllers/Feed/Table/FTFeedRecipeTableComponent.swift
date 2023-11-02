@@ -38,6 +38,10 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         )
         
         setupView()
+        
+        // Initially
+        loadingSpinner.startAnimating()
+        loadingSpinner.isHidden = false
     }
     
     required init?(coder: NSCoder) {
@@ -65,14 +69,6 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         tableHeaderView?.layoutIfNeeded()
         
         messageComponent = FTFeedRecipeTableMessageComponent()
-        
-        addSubview(messageComponent)
-        
-        messageComponent.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
         
         addSubview(messageComponent)
         
@@ -138,7 +134,13 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
         )
     }
     
-    func ftFeedHeaderFilterBarDidChangeFilterTo(filter: String) {
+    func ftFeedHeaderFilterBarDidChangeFilterTo(filter: String?) {
+        // This  is the header letting us know that we failed to make a
+        // network connection
+        guard let filter = filter else {
+            return
+        }
+        
         loadingSpinner.startAnimating()
         loadingSpinner.isHidden = false
         
