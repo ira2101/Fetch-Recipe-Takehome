@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class FTFeedRecipeTableCellModel {
     
@@ -15,6 +16,8 @@ class FTFeedRecipeTableCellModel {
     var recipe: FTRecipe?
     
     private var recipeRequest: DataRequest?
+    
+    private var imageRequest: DataRequest?
     
     init(recipeOverview: FTRecipeOverview) {
         self.recipeOverview = recipeOverview
@@ -39,12 +42,32 @@ class FTFeedRecipeTableCellModel {
         }
     }
     
+    func readThumbnailImage(completion: @escaping (UIImage) -> Void) {
+        guard let recipe = recipe else {
+            return
+        }
+        
+        imageRequest = FTNetworking.readImage(url: recipe.thumbnailImageURL) { result in
+            switch result {
+            case .success(let image):
+                guard let image = image else {
+                    return
+                }
+                
+                completion(image)
+            default:
+                break
+            }
+        }
+    }
+    
     func createTagsModel() -> FTFeedRecipeTableCellTagsModel {
         return FTFeedRecipeTableCellTagsModel(tags: recipe?.tags ?? [])
     }
     
     deinit {
         recipeRequest?.cancel()
+        imageRequest?.cancel()
     }
     
 }

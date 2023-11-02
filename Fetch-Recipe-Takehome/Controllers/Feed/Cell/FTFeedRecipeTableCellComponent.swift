@@ -20,6 +20,8 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     
     private var tagsComponent: FTFeedRecipeTableCellTagsComponent!
     
+    private var ftImageView: FTImageView!
+    
     // need to keep a reference
     private var model: FTFeedRecipeTableCellModel?
 
@@ -55,6 +57,10 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
             self.titleLabel.ftText(recipe.mealName)
             
             self.tagsComponent.ftConfigure(model: model.createTagsModel())
+            
+            model.readThumbnailImage { image in
+                self.ftImageView.image = image
+            }
         }
     }
     
@@ -71,7 +77,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     private func Content() -> UIView {
         return FTHStack()
         .ftAddArrangedSubview(
-            Image()
+            ImageViewContainer()
         )
         .ftAddArrangedSubview(
             RightContainer()
@@ -88,16 +94,23 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
         )
     }
     
-    private func Image() -> UIView {
+    private func ImageViewContainer() -> UIView {
         return FTHStack()
         .ftAddArrangedSubview(
-            FTImageView()
-            .ftImage(UIImage(named: "default"))
+            ImageView()
         )
         .ftWidth(100)
         .ftHeight(100)
         .ftCornerRadius(8)
         .ftClipsToBounds(true)
+    }
+    
+    private func ImageView() -> UIView {
+        ftImageView =
+        FTImageView()
+        .ftImage(UIImage(named: "default"))
+        .ftContentMode(.scaleAspectFill)
+        return ftImageView
     }
     
     private func RightContainer() -> UIView {
