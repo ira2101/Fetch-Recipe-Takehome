@@ -86,7 +86,7 @@ struct FTRecipe: Decodable {
         
         tags = tagsRaw?.split(separator: ",").map(String.init).map {
             FTTag(text: $0)
-        }        
+        }
         
         // Instuctions are separated by newlines
         let instructionsRaw = try container.decode(String.self, forKey: .instructions)

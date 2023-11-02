@@ -18,6 +18,8 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     
     private var titleLabel: FTLabel!
     
+    private var tagsComponent: FTFeedRecipeTableCellTagsComponent!
+    
     // need to keep a reference
     private var model: FTFeedRecipeTableCellModel?
 
@@ -51,6 +53,8 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
             self.areaLabel.ftText(recipe.area)
             
             self.titleLabel.ftText(recipe.mealName)
+            
+            self.tagsComponent.ftConfigure(model: model.createTagsModel())
         }
     }
     
@@ -170,7 +174,14 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     }
     
     private func Tags() -> UIView {
-        return FTFeedRecipeTableCellTagsComponent()
+        tagsComponent = FTFeedRecipeTableCellTagsComponent()
+        return tagsComponent
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        tagsComponent.ftPrepareForReuse()
+    }
+    
 }

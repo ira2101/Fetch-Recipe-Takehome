@@ -36,4 +36,8 @@ class FTFeedRecipeTableCellModel {
         }
     }
     
+    func createTagsModel() -> FTFeedRecipeTableCellTagsModel {
+        return FTFeedRecipeTableCellTagsModel(tags: recipe?.tags ?? [])
+    }
+    
 }

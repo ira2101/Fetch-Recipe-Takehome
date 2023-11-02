@@ -8,6 +8,10 @@
 import UIKit
 
 class FTFeedRecipeTableCellTagsComponent: FTHScrollStack {
+    
+    private let maxNumberOfTags = 5
+    
+    private var tagItemComponents: [FTFeedRecipeTableCellTagItemComponent] = []
 
     override init() {
         super.init()
@@ -15,33 +19,42 @@ class FTFeedRecipeTableCellTagsComponent: FTHScrollStack {
     }
     
     private func setupView() {
+        // I decided that a recipe can show no more than five tags
+        for _ in 0..<maxNumberOfTags {
+            tagItemComponents.append(FTFeedRecipeTableCellTagItemComponent())
+        }
+        
+        tagItemComponents.forEach { item in
+            self.ftAddArrangedSubview(item)
+        }
+        
         self
-        .ftAddArrangedSubview(
-            Tag()
-        )
-        .ftAddArrangedSubview(
-            Tag()
-        )
-        .ftAddArrangedSubview(
-            Tag()
-        )
         .ftSpacing(4)
         .ftAlwaysBounceHorizontal(false)
         .ftshowsHorizontalScrollIndicator(false)
     }
     
-    private func Tag() -> UIView {
-        return FTHStack()
-        .ftAddArrangedSubview(
-            FTLabel()
-            .ftText("Tag")
-            .ftTextColor(FTColorPalette.labelSecondary)
-            .ftFont(textStyle: .footnote, weight: .medium)
-        )
-        .ftPaddingHorizontal(8)
-        .ftPaddingVertical(4)
-        .ftCornerRadius(4)
-        .ftBackgroundColor(UIColor(hex: 0xF8F8F8))
+    func ftConfigure(model: FTFeedRecipeTableCellTagsModel) {
+        if model.tags.count == 0 {
+            isHidden = true
+        }
+        
+        // we use min in case tags.count < tagItemComponents.count
+        for i in 0..<min(tagItemComponents.count, model.tags.count) {
+            tagItemComponents[i].ftConfigure(tag: model.tags[i])
+        }
     }
-
+    
+    func ftPrepareForReuse() {
+        isHidden = false
+        
+        // Clear the tags
+        tagItemComponents.forEach { item in
+            item.ftPrepareForReuse()
+        }
+        
+        // In case the scroll view was scrolled
+        ftScrollView.contentOffset = .zero
+    }
+    
 }
