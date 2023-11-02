@@ -12,6 +12,8 @@ struct FTRecipe: Decodable {
     let id: String
     
     let mealName: String
+    
+    let category: String
         
     let area: String
     
@@ -19,7 +21,7 @@ struct FTRecipe: Decodable {
     
     let thumbnailImageURL: String
     
-    let tags: [FTTag]
+    let tags: [FTTag]?
         
     let ingredients: [FTIngredient]
     
@@ -28,6 +30,8 @@ struct FTRecipe: Decodable {
         case id = "idMeal"
         
         case mealName = "strMeal"
+        
+        case category = "strCategory"
                 
         case area = "strArea"
         
@@ -45,6 +49,7 @@ struct FTRecipe: Decodable {
         // These fields are given to us in their usable form
         id = try container.decode(String.self, forKey: .id)
         mealName = try container.decode(String.self, forKey: .mealName)
+        category = try container.decode(String.self, forKey: .category)
         area = try container.decode(String.self, forKey: .area)
         thumbnailImageURL = try container.decode(String.self, forKey: .thumbnailImageURL)
         
@@ -77,11 +82,11 @@ struct FTRecipe: Decodable {
         ingredients = ingredientsTemp
                 
         // Tags are separated by commas
-        let tagsRaw = try container.decode(String.self, forKey: .tags)
+        let tagsRaw = try container.decodeIfPresent(String.self, forKey: .tags)
         
-        tags = tagsRaw.split(separator: ",").map(String.init).map {
+        tags = tagsRaw?.split(separator: ",").map(String.init).map {
             FTTag(text: $0)
-        }
+        }        
         
         // Instuctions are separated by newlines
         let instructionsRaw = try container.decode(String.self, forKey: .instructions)
@@ -95,7 +100,7 @@ struct FTRecipe: Decodable {
 
 struct FTRecipeResponseWrapper: Decodable {
     
-    let recipe: FTRecipe
+    let recipe: [FTRecipe]
     
     enum CodingKeys: String, CodingKey {
         case recipe = "meals"

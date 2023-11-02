@@ -11,6 +11,15 @@ import SnapKit
 class FTFeedRecipeTableCellComponent: UITableViewCell {
     
     static let identifier = "FTFeedRecipeTableCellComponent"
+    
+    private var categoryLabel: FTLabel!
+    
+    private var areaLabel: FTLabel!
+    
+    private var titleLabel: FTLabel!
+    
+    // need to keep a reference
+    private var model: FTFeedRecipeTableCellModel?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,7 +41,17 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     }
     
     func ftConfigure(model: FTFeedRecipeTableCellModel) {
+        self.model = model
         
+        model.readRecipe { [weak self] recipe in
+            guard let self = self else { return }
+            
+            self.categoryLabel.ftText(recipe.category)
+            
+            self.areaLabel.ftText(recipe.area)
+            
+            self.titleLabel.ftText(recipe.mealName)
+        }
     }
     
     private func Cell() -> UIView {
@@ -103,10 +122,7 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     private func Category() -> UIView {
         return FTHStack()
         .ftAddArrangedSubview(
-            FTLabel()
-            .ftText("Category")
-            .ftTextColor(UIColor(hex: 0x0072A3))
-            .ftFont(textStyle: .footnote, weight: .semibold)
+            CategoryLabel()
         )
         .ftPaddingHorizontal(8)
         .ftPaddingVertical(4)
@@ -114,13 +130,19 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
         .ftBackgroundColor(UIColor(hex: 0xD8F3FF))
     }
     
+    private func CategoryLabel() -> UIView {
+        categoryLabel =
+        FTLabel()
+        .ftText("Category")
+        .ftTextColor(UIColor(hex: 0x0072A3))
+        .ftFont(textStyle: .footnote, weight: .semibold)
+        return categoryLabel
+    }
+    
     private func Area() -> UIView {
         return FTHStack()
         .ftAddArrangedSubview(
-            FTLabel()
-            .ftText("Area")
-            .ftTextColor(UIColor(hex: 0xA68200))
-            .ftFont(textStyle: .footnote, weight: .semibold)
+            AreaLabel()
         )
         .ftPaddingHorizontal(8)
         .ftPaddingVertical(4)
@@ -128,11 +150,23 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
         .ftBackgroundColor(UIColor(hex: 0xFFF2C3))
     }
     
+    private func AreaLabel() -> UIView {
+        areaLabel =
+        FTLabel()
+        .ftText("Area")
+        .ftTextColor(UIColor(hex: 0xA68200))
+        .ftFont(textStyle: .footnote, weight: .semibold)
+        return areaLabel
+    }
+    
     private func TitleLabel() -> UIView {
-        return FTLabel()
+        titleLabel =
+        FTLabel()
         .ftText("Title")
         .ftTextColor(FTColorPalette.labelPrimary)
         .ftFont(textStyle: .title3, weight: .semibold)
+        .ftNumberOfLines(3)
+        return titleLabel
     }
     
     private func Tags() -> UIView {

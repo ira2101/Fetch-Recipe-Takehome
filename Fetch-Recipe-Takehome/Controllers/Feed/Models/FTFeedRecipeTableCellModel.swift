@@ -11,23 +11,27 @@ class FTFeedRecipeTableCellModel {
     
     private var recipeOverview: FTRecipeOverview
     
-    private var recipe: FTRecipe?
+    var recipe: FTRecipe?
     
     init(recipeOverview: FTRecipeOverview) {
         self.recipeOverview = recipeOverview
     }
         
-    func readRecipe(completion: @escaping (Result<Void, Error>) -> Void) {
+    func readRecipe(completion: @escaping (FTRecipe) -> Void) {
         FTNetworking.readObject(type: FTRecipeResponseWrapper.self, uri: "/api/json/v1/1/lookup.php", parameters: ["i": recipeOverview.id]) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let recipeWrapper):
-                self.recipe = recipeWrapper.recipe
+                guard let recipe = recipeWrapper.recipe.first else {
+                    return
+                }
                 
-                completion(.success(()))
+                self.recipe = recipe
+                completion(recipe)
             case .failure(let failure):
-                completion(.failure(failure))
+                print(failure)
+                break
             }
         }
     }

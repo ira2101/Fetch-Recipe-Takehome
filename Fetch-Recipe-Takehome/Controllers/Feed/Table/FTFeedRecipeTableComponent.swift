@@ -78,6 +78,15 @@ class FTFeedRecipeTableComponent: UITableView, UITableViewDelegate, UITableViewD
             return UITableViewCell()
         }
         
+        guard let recipeOverviews = model.recipeOverviews else {
+            return UITableViewCell()
+        }
+        
+        let index = indexPath.row
+        let recipeOverview = recipeOverviews[index]
+        
+        cell.ftConfigure(model: model.createTableCellModel(recipeOverview: recipeOverview))
+        
         return cell
     }
     
