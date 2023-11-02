@@ -24,8 +24,8 @@ class FTFeedHeaderFilterBarComponent: FTHScrollStack {
             guard let self = self else { return }
             
             switch result {
-            case .success(let categoriesWrapper):
-                self.successfullyReadCategories(categories: categoriesWrapper.categories)
+            case .success(let categories):
+                self.successfullyReadCategories(categories: categories)
             case .failure:
                 // There is nothing we want to do if we can't fetch results. We will show
                 // in the tableView if we are unable to fetch any results.

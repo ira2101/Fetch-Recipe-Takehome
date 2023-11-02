@@ -10,12 +10,17 @@ import Alamofire
 
 class FTFeedHeaderFilterBarModel {
         
-    func readCategories(_ completion: @escaping (Result<FTCategoryResponseWrapper, Error>) -> Void) {
+    func readCategories(_ completion: @escaping (Result<[FTCategory], Error>) -> Void) {
         FTNetworking.readObject(
             type: FTCategoryResponseWrapper.self,
             uri: "/api/json/v1/1/categories.php"
         ) { result in
-            completion(result)
+            switch result {
+            case .success(let categoriesWrapper):
+                completion(.success(categoriesWrapper.categories))
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
         }
     }
     
