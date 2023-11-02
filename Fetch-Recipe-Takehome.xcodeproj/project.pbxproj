@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		47B5A4EC2AF1776500C16F16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A4EB2AF1776500C16F16 /* AppDelegate.swift */; };
 		47B5A4EE2AF1776500C16F16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A4ED2AF1776500C16F16 /* SceneDelegate.swift */; };
-		47B5A4F02AF1776500C16F16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A4EF2AF1776500C16F16 /* ViewController.swift */; };
 		47B5A4F32AF1776500C16F16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B5A4F12AF1776500C16F16 /* Main.storyboard */; };
 		47B5A4F52AF1776700C16F16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B5A4F42AF1776700C16F16 /* Assets.xcassets */; };
 		47B5A4F82AF1776700C16F16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B5A4F62AF1776700C16F16 /* LaunchScreen.storyboard */; };
@@ -101,7 +100,6 @@
 		47B5A4E82AF1776500C16F16 /* Fetch-Recipe-Takehome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fetch-Recipe-Takehome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B5A4EB2AF1776500C16F16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47B5A4ED2AF1776500C16F16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		47B5A4EF2AF1776500C16F16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		47B5A4F22AF1776500C16F16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47B5A4F42AF1776700C16F16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47B5A4F72AF1776700C16F16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				47B5A51B2AF1784700C16F16 /* Components */,
 				47B5A4EB2AF1776500C16F16 /* AppDelegate.swift */,
 				47B5A4ED2AF1776500C16F16 /* SceneDelegate.swift */,
-				47B5A4EF2AF1776500C16F16 /* ViewController.swift */,
 				47B5A4F12AF1776500C16F16 /* Main.storyboard */,
 				47B5A4F42AF1776700C16F16 /* Assets.xcassets */,
 				47B5A4F62AF1776700C16F16 /* LaunchScreen.storyboard */,
@@ -646,7 +643,6 @@
 				47B5A5872AF30A2700C16F16 /* FTFeedHeaderFilterBarItemModel.swift in Sources */,
 				47B5A5562AF1C7AF00C16F16 /* FTRecipeCardBackgroundImageComponent.swift in Sources */,
 				47B5A5382AF1977300C16F16 /* FTFeedViewController.swift in Sources */,
-				47B5A4F02AF1776500C16F16 /* ViewController.swift in Sources */,
 				47B5A5912AF3148B00C16F16 /* FTIngredient.swift in Sources */,
 				47B5A5A62AF33C6400C16F16 /* FTRecipeCardIngredientsModel.swift in Sources */,
 				47B5A4EC2AF1776500C16F16 /* AppDelegate.swift in Sources */,
