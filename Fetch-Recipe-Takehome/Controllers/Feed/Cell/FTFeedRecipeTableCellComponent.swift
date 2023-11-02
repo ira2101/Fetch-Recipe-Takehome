@@ -180,7 +180,6 @@ class FTFeedRecipeTableCellComponent: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         tagsComponent.ftPrepareForReuse()
     }
     

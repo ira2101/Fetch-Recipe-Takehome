@@ -14,8 +14,9 @@ class FTNetworking {
     static let baseURL = "https://www.themealdb.com"
     
     /// The json contains the full image paths, so we can just pass in the iamge path
-    static func readImage(url: String, completion: @escaping (Result<UIImage?, Error>) -> Void) {
-        AF.request(url).responseData { response in
+    @discardableResult
+    static func readImage(url: String, completion: @escaping (Result<UIImage?, Error>) -> Void) -> DataRequest {
+        return AF.request(url).responseData { response in
             switch response.result {
             case .success(let data):
                 let image = UIImage(data: data)
@@ -26,8 +27,9 @@ class FTNetworking {
         }
     }
     
-    static func readObject<T : Decodable>(type: T.Type, uri: String, parameters: Parameters? = nil, completion: @escaping (Result<T, Error>) -> Void) {
-        AF.request(baseURL + uri, parameters: parameters).responseDecodable(of: T.self) { response in
+    @discardableResult
+    static func readObject<T : Decodable>(type: T.Type, uri: String, parameters: Parameters? = nil, completion: @escaping (Result<T, Error>) -> Void) -> DataRequest {
+        return AF.request(baseURL + uri, parameters: parameters).responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):
                 completion(.success(data))

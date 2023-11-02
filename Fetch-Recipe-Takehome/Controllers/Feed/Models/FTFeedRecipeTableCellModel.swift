@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Alamofire
 
 class FTFeedRecipeTableCellModel {
     
     private var recipeOverview: FTRecipeOverview
     
     var recipe: FTRecipe?
+    
+    private var recipeRequest: DataRequest?
     
     init(recipeOverview: FTRecipeOverview) {
         self.recipeOverview = recipeOverview
@@ -38,6 +41,10 @@ class FTFeedRecipeTableCellModel {
     
     func createTagsModel() -> FTFeedRecipeTableCellTagsModel {
         return FTFeedRecipeTableCellTagsModel(tags: recipe?.tags ?? [])
+    }
+    
+    deinit {
+        recipeRequest?.cancel()
     }
     
 }
