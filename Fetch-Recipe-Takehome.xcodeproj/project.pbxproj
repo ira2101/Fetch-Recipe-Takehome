@@ -15,7 +15,6 @@
 		471905F92B02D44900C42B8F /* FTFeedRecipeTableCellTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471905F82B02D44900C42B8F /* FTFeedRecipeTableCellTagsView.swift */; };
 		471905FB2B02D6D500C42B8F /* FTFeedRecipeTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471905FA2B02D6D500C42B8F /* FTFeedRecipeTableCellView.swift */; };
 		471905FE2B02DBC000C42B8F /* FTFeedRecipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471905FD2B02DBC000C42B8F /* FTFeedRecipeTableView.swift */; };
-		471906002B02DC3300C42B8F /* FTFeedTableResultsCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471905FF2B02DC3300C42B8F /* FTFeedTableResultsCountView.swift */; };
 		471906042B02E39100C42B8F /* FTRecipeCardIngredientItemCheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471906032B02E39100C42B8F /* FTRecipeCardIngredientItemCheckmarkView.swift */; };
 		471906062B02E39E00C42B8F /* FTRecipeCardIngredientItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471906052B02E39E00C42B8F /* FTRecipeCardIngredientItemView.swift */; };
 		471906092B02E3B300C42B8F /* FTRecipeCardIngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471906082B02E3B300C42B8F /* FTRecipeCardIngredientsView.swift */; };
@@ -136,7 +135,6 @@
 		471905F82B02D44900C42B8F /* FTFeedRecipeTableCellTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableCellTagsView.swift; sourceTree = "<group>"; };
 		471905FA2B02D6D500C42B8F /* FTFeedRecipeTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableCellView.swift; sourceTree = "<group>"; };
 		471905FD2B02DBC000C42B8F /* FTFeedRecipeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedRecipeTableView.swift; sourceTree = "<group>"; };
-		471905FF2B02DC3300C42B8F /* FTFeedTableResultsCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeedTableResultsCountView.swift; sourceTree = "<group>"; };
 		471906032B02E39100C42B8F /* FTRecipeCardIngredientItemCheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardIngredientItemCheckmarkView.swift; sourceTree = "<group>"; };
 		471906052B02E39E00C42B8F /* FTRecipeCardIngredientItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardIngredientItemView.swift; sourceTree = "<group>"; };
 		471906082B02E3B300C42B8F /* FTRecipeCardIngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTRecipeCardIngredientsView.swift; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				471905FD2B02DBC000C42B8F /* FTFeedRecipeTableView.swift */,
-				471905FF2B02DC3300C42B8F /* FTFeedTableResultsCountView.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -895,7 +892,6 @@
 				47B5A5932AF314B100C16F16 /* FTTag.swift in Sources */,
 				47B5A5402AF1990C00C16F16 /* FTColorPalette.swift in Sources */,
 				47B5A54A2AF1AB8500C16F16 /* FTFeedTableResultsCountComponent.swift in Sources */,
-				471906002B02DC3300C42B8F /* FTFeedTableResultsCountView.swift in Sources */,
 				47B5A5AA2AF33C7C00C16F16 /* FTRecipeCardInstructionsViewModel.swift in Sources */,
 				471906292B03DCE600C42B8F /* FTRecipeCardOverviewViewModel2.swift in Sources */,
 				47B5A58D2AF312B800C16F16 /* FTRecipe.swift in Sources */,

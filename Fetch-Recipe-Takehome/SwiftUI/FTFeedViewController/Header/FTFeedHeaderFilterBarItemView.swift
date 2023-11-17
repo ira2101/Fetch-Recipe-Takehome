@@ -56,6 +56,7 @@ struct FTFeedHeaderFilterBarItemView: View {
             ? Color(uiColor: UIColor(hex: 0xFCF3DB))
             : .clear
         )
+        .cornerRadius(.greatestFiniteMagnitude)
         .onTapGesture {
             activeCategory = model.category.type
         }

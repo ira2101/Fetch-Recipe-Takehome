@@ -10,9 +10,7 @@ import SwiftUI
 struct FTFeedRecipeTableView: View {
     
     @StateObject var model: FTFeedRecipeTableViewModel2 = FTFeedRecipeTableViewModel2()
-    
-//    @State var presentRecipeView: Bool
-    
+        
     @Binding var activeCategory: String
     
     var body: some View {

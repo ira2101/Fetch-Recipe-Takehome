@@ -11,7 +11,7 @@ struct FTRecipeCardBackgroundImageView: View {
     
     @ObservedObject var model: FTRecipeCardBackgroundImageViewModel2
     
-    @Binding var scrollOffset: CGFloat
+    var scrollOffset: CGFloat
     
     var body: some View {
         GeometryReader { geometry in

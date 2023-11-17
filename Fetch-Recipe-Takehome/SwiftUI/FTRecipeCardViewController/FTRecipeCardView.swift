@@ -39,7 +39,7 @@ struct FTRecipeCardView: View {
             ZStack {
                 FTRecipeCardBackgroundImageView(
                     model: model.createBackgroundImageModel(),
-                    scrollOffset: $scrollOffset
+                    scrollOffset: scrollOffset
                 )
                 FTRecipeCardVScrollView(
                     model: model.createVScrollModel(),
