@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct FTIngredient {
+struct FTIngredient: Identifiable {
     
     let name: String
     
     /// 1 cup, 1/2 tablespoon, ...
     let amount: String
+    
+    var id: String { name }
     
 }

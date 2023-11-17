@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FTRecipeOverview: Decodable {
+struct FTRecipeOverview: Decodable, Identifiable {
     
     let id: String
     

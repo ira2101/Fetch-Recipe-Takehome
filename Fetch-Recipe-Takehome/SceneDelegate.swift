@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,11 +20,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let navigationController = UINavigationController(
-            rootViewController: FTFeedViewController()
-        )
+//        let navigationController = UINavigationController(
+//            rootViewController: FTFeedViewController()
+//        )
+//
+//        window.rootViewController = navigationController
         
-        window.rootViewController = navigationController
+        let hostingController = UIHostingController(rootView: FTFeedView())
+
+        window.rootViewController = hostingController
         
         self.window = window
         window.makeKeyAndVisible()

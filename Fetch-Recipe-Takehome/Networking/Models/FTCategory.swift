@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FTCategory: Decodable {
+struct FTCategory: Decodable, Identifiable {
     
     let id: String
     

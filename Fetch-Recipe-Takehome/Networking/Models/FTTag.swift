@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct FTTag {
+struct FTTag: Identifiable {
     
     let text: String
+    
+    var id: String { text }
     
 }

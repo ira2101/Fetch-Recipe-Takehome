@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct FTInstruction {
+struct FTInstruction: Identifiable {
     
     let text: String
+    
+    var id: String { text }
     
 }
